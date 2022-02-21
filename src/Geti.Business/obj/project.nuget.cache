@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "msRYSiUw8gPXSVSOayL1qTQ7NaGqVFKO3saPaq231dj2QonshbuvUVk8BO7iju0+gnku7KuCnAoF8DigWe01Pw==",
+  "success": true,
+  "projectFilePath": "D:\\Coding\\geti\\src\\Geti.Business\\Geti.Business.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Rodrigo Vianna\\.nuget\\packages\\fluentvalidation\\10.3.6\\fluentvalidation.10.3.6.nupkg.sha512"
+  ],
+  "logs": []
+}
