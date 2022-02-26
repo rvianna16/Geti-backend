@@ -10,7 +10,7 @@ namespace Geti.Business.Interfaces
         Task<Colaborador> ObterColaborador(Guid id);
 
         Task<IEnumerable<Colaborador>> ObterColaboradores();
-        //check
-        Task<IEnumerable<Colaborador>> ObterColaboradorEquipamentos(Guid id);
+        
+        Task<Colaborador> ObterColaboradorEquipamentos(Guid id);
     }
 }

@@ -9,13 +9,13 @@ namespace Geti.Business.Validations
         {
             RuleFor(c => c.Nome)
                 .NotEmpty()
-                .WithMessage("O campo {PropertyName} não pode estar vaizo")
+                .WithMessage("O campo {PropertyName} não pode estar vazio")
                 .Length(2, 30)
                 .WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
 
             RuleFor(c => c.Email)
                 .NotEmpty()
-                .WithMessage("O campo {PropertyName} não pode estar vaizo")
+                .WithMessage("O campo {PropertyName} não pode estar vazio")
                 .Length(2, 50)
                 .WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
         }

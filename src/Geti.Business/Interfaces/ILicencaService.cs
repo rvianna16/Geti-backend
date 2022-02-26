@@ -10,7 +10,9 @@ namespace Geti.Business.Interfaces
     public interface ILicencaService
     {
         Task Adicionar(Licenca licenca);
+
         Task Atualizar(Licenca licenca);
+
         Task Remover(Guid id);
 
     }

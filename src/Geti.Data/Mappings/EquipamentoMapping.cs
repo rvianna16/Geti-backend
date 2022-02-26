@@ -21,7 +21,7 @@ namespace Geti.Data.Mappings
             builder.Property(p => p.NotaFiscal)
                 .HasColumnType("varchar(50)");
 
-            builder.Property(p => p.Status)
+            builder.Property(p => p.StatusEquipamento)
                 .IsRequired()
                 .HasColumnType("varchar(15)");
 

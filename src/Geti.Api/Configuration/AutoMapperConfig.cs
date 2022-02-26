@@ -10,6 +10,7 @@ namespace Geti.Api.Configuration
         {
             CreateMap<Colaborador, ColaboradorViewModel>().ReverseMap();
             CreateMap<Equipamento, EquipamentoViewModel>().ReverseMap();
+            CreateMap<Licenca, LicencaViewModel>().ReverseMap();
         }
     }
 }

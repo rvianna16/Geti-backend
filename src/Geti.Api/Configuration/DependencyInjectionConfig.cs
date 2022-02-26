@@ -15,11 +15,13 @@ namespace Geti.Api.Configuration
                 services.AddScoped<GetiDbContext>();
                 services.AddScoped<IColaboradorRepository, ColaboradorRepository>();
                 services.AddScoped<IColaboradorService, ColaboradorService>();
+                services.AddScoped<IEquipamentoRepository, EquipamentoRepository>();
+                services.AddScoped<IEquipamentoService, EquipamentoService>();
 
                 services.AddScoped<INotificador, Notificador>();
+        
 
-
-            return services;
+                return services;
             }
     }
 }

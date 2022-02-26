@@ -27,10 +27,10 @@ namespace Geti.Data.Repository
                 .ToListAsync();
         }
 
-        public async Task<IEnumerable<Licenca>> ObterLicencaEquipamentos(Guid id)
+        public async Task<Licenca> ObterLicencaEquipamentos(Guid id)
         {
             return await Db.Licencas.AsNoTracking().Include(e => e.Equipamentos)
-               .OrderBy(l => l.Nome).ToListAsync();
+               .OrderBy(l => l.Nome).FirstOrDefaultAsync();
         }
     }
 }
