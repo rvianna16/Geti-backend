@@ -13,6 +13,5 @@ namespace Geti.Business.Interfaces
 
         Task Remover(Guid id);
 
-        Task AtualizarEquipamento(Equipamento equipamento);
     }
 }

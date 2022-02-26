@@ -5842,6 +5842,7 @@
       "Geti.Business >= 1.0.0",
       "Microsoft.EntityFrameworkCore >= 5.0.12",
       "Microsoft.EntityFrameworkCore.Analyzers >= 5.0.12",
+      "Microsoft.EntityFrameworkCore.Relational >= 5.0.12",
       "Microsoft.EntityFrameworkCore.SqlServer >= 5.0.12",
       "Microsoft.EntityFrameworkCore.Tools >= 5.0.12"
     ]
@@ -5894,6 +5895,10 @@
             "version": "[5.0.12, )"
           },
           "Microsoft.EntityFrameworkCore.Analyzers": {
+            "target": "Package",
+            "version": "[5.0.12, )"
+          },
+          "Microsoft.EntityFrameworkCore.Relational": {
             "target": "Package",
             "version": "[5.0.12, )"
           },

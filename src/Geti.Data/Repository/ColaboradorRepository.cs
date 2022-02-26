@@ -14,23 +14,11 @@ namespace Geti.Data.Repository
 
         public ColaboradorRepository(GetiDbContext context) : base(context) { }
 
-        public async Task<Colaborador> ObterColaborador(Guid id)
-        {
-            return await Db.Colaboradores.AsNoTracking()
-                .FirstOrDefaultAsync(c => c.Id == id);            
-        }       
-
-        public async Task<IEnumerable<Colaborador>> ObterColaboradores()
-        {
-            return await Db.Colaboradores.
-                OrderBy(c => c.Nome)
-                .ToListAsync();
-        }
         public async Task<Colaborador> ObterColaboradorEquipamentos(Guid id)
         {
             return await Db.Colaboradores.AsNoTracking()
-                .Include(e => e.Equipamentos)
-                .FirstOrDefaultAsync();
+                .Include(c => c.Equipamentos)
+                .FirstOrDefaultAsync(c => c.Id == id);
         }       
     }
 }

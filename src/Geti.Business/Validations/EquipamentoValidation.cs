@@ -18,7 +18,7 @@ namespace Geti.Business.Validations
                 .Length(1, 50)
                 .WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
 
-            RuleFor(e => e.Colaborador)
+            RuleFor(e => e.ColaboradorId)
                 .NotEmpty()
                 .WithMessage("O campo {PropertyName} não pode estar vazio");
 

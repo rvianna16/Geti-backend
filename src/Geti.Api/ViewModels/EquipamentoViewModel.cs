@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace Geti.Api.ViewModels
 {
-    public class EquipamentoViewModel
+    public class EquipamentoViewModel : Entity
     {
         public Guid ColaboradorId { get; set; }
 
@@ -16,13 +16,13 @@ namespace Geti.Api.ViewModels
 
         public DateTime DataAquisicao { get; set; }
 
+        public string NomeColaborador { get; set; }
+
         public string NotaFiscal { get; set; }
 
-        public StatusEquipamento StatusEquipamento { get; set; }
+        public StatusEquipamento StatusEquipamento { get; set; }       
 
-        public Colaborador Colaborador { get; set; }
-
-        public List<string> Comentarios { get; set; }
+        public string Comentario { get; set; }
 
         public IEnumerable<LicencaViewModel> Licencas { get; set; }
     }

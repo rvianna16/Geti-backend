@@ -48,8 +48,8 @@ namespace Geti.Data.Migrations
                     Descricao = table.Column<string>(type: "varchar(200)", nullable: false),
                     DataAquisicao = table.Column<DateTime>(type: "datetime2", nullable: false),
                     NotaFiscal = table.Column<string>(type: "varchar(50)", nullable: true),
-                    Status = table.Column<string>(type: "varchar(15)", nullable: false),
-                    Comentarios = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    StatusEquipamento = table.Column<string>(type: "varchar(15)", nullable: false),
+                    Comentario = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

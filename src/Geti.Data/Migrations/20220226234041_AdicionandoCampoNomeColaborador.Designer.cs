@@ -10,15 +10,15 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Geti.Data.Migrations
 {
     [DbContext(typeof(GetiDbContext))]
-    [Migration("20220218205805_Initial")]
-    partial class Initial
+    [Migration("20220226234041_AdicionandoCampoNomeColaborador")]
+    partial class AdicionandoCampoNomeColaborador
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.14")
+                .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("EquipamentoLicenca", b =>
@@ -36,7 +36,7 @@ namespace Geti.Data.Migrations
                     b.ToTable("EquipamentoLicenca");
                 });
 
-            modelBuilder.Entity("It_Inventory.Business.Models.Colaborador", b =>
+            modelBuilder.Entity("Geti.Business.Models.Colaborador", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -55,7 +55,7 @@ namespace Geti.Data.Migrations
                     b.ToTable("Colaboradores");
                 });
 
-            modelBuilder.Entity("It_Inventory.Business.Models.Equipamento", b =>
+            modelBuilder.Entity("Geti.Business.Models.Equipamento", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -64,7 +64,7 @@ namespace Geti.Data.Migrations
                     b.Property<Guid>("ColaboradorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<string>("Comentarios")
+                    b.Property<string>("Comentario")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("DataAquisicao")
@@ -81,7 +81,7 @@ namespace Geti.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(20)");
 
-                    b.Property<string>("Status")
+                    b.Property<string>("StatusEquipamento")
                         .IsRequired()
                         .HasColumnType("varchar(15)");
 
@@ -95,7 +95,7 @@ namespace Geti.Data.Migrations
                     b.ToTable("Equipamentos");
                 });
 
-            modelBuilder.Entity("It_Inventory.Business.Models.Licenca", b =>
+            modelBuilder.Entity("Geti.Business.Models.Licenca", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -128,20 +128,20 @@ namespace Geti.Data.Migrations
 
             modelBuilder.Entity("EquipamentoLicenca", b =>
                 {
-                    b.HasOne("It_Inventory.Business.Models.Equipamento", null)
+                    b.HasOne("Geti.Business.Models.Equipamento", null)
                         .WithMany()
                         .HasForeignKey("EquipamentosId")
                         .IsRequired();
 
-                    b.HasOne("It_Inventory.Business.Models.Licenca", null)
+                    b.HasOne("Geti.Business.Models.Licenca", null)
                         .WithMany()
                         .HasForeignKey("LicencasId")
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("It_Inventory.Business.Models.Equipamento", b =>
+            modelBuilder.Entity("Geti.Business.Models.Equipamento", b =>
                 {
-                    b.HasOne("It_Inventory.Business.Models.Colaborador", "Colaborador")
+                    b.HasOne("Geti.Business.Models.Colaborador", "Colaborador")
                         .WithMany("Equipamentos")
                         .HasForeignKey("ColaboradorId")
                         .IsRequired();
@@ -149,7 +149,7 @@ namespace Geti.Data.Migrations
                     b.Navigation("Colaborador");
                 });
 
-            modelBuilder.Entity("It_Inventory.Business.Models.Colaborador", b =>
+            modelBuilder.Entity("Geti.Business.Models.Colaborador", b =>
                 {
                     b.Navigation("Equipamentos");
                 });

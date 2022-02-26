@@ -8,11 +8,7 @@ using System.Threading.Tasks;
 namespace Geti.Business.Interfaces
 {
     public interface IEquipamentoRepository : IRepository<Equipamento>
-    {
-        Task<Equipamento> ObterEquipamento(Guid id);
-
-        Task<IEnumerable<Equipamento>> ObterEquipamentos();
-
-        Task<Equipamento> ObterEquipamentoLicencas();
+    {      
+        Task<Equipamento> ObterEquipamentoLicencas(Guid id);
     }
 }

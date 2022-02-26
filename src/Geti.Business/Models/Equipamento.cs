@@ -19,11 +19,11 @@ namespace Geti.Business.Models
 
         public StatusEquipamento StatusEquipamento { get; set; }
 
-        public Colaborador Colaborador { get; set; }
-
-        public List<string> Comentarios { get; set; }
+        public string Comentario { get; set; }
 
         public IEnumerable<Licenca> Licencas { get; set; }
+
+        public Colaborador Colaborador { get; set; }
 
     }
 }

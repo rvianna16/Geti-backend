@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Geti.Api.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/colaboradores")]
     public class ColaboradoresController : MainController
     {
 
@@ -20,7 +20,8 @@ namespace Geti.Api.Controllers
         public ColaboradoresController(
             IColaboradorRepository colaboradorRepository,
             IColaboradorService colaboradorService,
-            IMapper mapper)
+            IMapper mapper,
+            INotificador notificador) : base(notificador)
         {
             _colaboradorRepository = colaboradorRepository;
             _colaboradorService = colaboradorService;
@@ -31,8 +32,9 @@ namespace Geti.Api.Controllers
         public async Task<ActionResult<IEnumerable<ColaboradorViewModel>>> ObterColaboradores()
         {
             var colaborador = _mapper.Map<IEnumerable<ColaboradorViewModel>>(await _colaboradorRepository.ObterTodos());
+            
 
-            return Ok(colaborador);
+            return CustomResponse(colaborador);
         }
 
         [HttpGet("{id}")]
@@ -40,22 +42,33 @@ namespace Geti.Api.Controllers
         {
             var colaborador = _mapper.Map<ColaboradorViewModel>(await _colaboradorRepository.ObterPorId(id));
 
+            if (colaborador == null)
+            {
+                NotificarErro("Não foi possível encontrar um colaborador com este id");
+                return CustomResponse();
+            };
+
+            return CustomResponse(colaborador);
+        }
+
+        [HttpGet("{id}/equipamentos")]
+        public async Task<ActionResult<ColaboradorViewModel>> ObterColaboradorListaEquipamentos(Guid id)
+        {
+            var colaborador = await ObterColaboradorEquipamentos(id);
+
             if (colaborador == null) return NotFound();
-            return Ok(colaborador);
+
+            return CustomResponse(colaborador);
         }
 
         [HttpPost]
         public async Task<ActionResult<ColaboradorViewModel>> AdicionarColaborador(ColaboradorViewModel colaboradorViewModel)
         {
-            if (!ModelState.IsValid) return BadRequest();
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            var colaborador = _mapper.Map<Colaborador>(colaboradorViewModel);
+            await _colaboradorService.Adicionar(_mapper.Map<Colaborador>(colaboradorViewModel));
 
-            var result = await _colaboradorService.Adicionar(colaborador);
-
-            if (!result) return BadRequest();
-
-            return Ok(colaborador);
+            return CustomResponse(colaboradorViewModel);
         }
 
         [HttpPut("{id}")]
@@ -63,32 +76,28 @@ namespace Geti.Api.Controllers
         {
             if (id != colaboradorViewModel.Id) return BadRequest();
 
-            if (!ModelState.IsValid) return BadRequest();
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            var colaborador = _mapper.Map<Colaborador>(colaboradorViewModel);
+            await _colaboradorService.Atualizar(_mapper.Map<Colaborador>(colaboradorViewModel));
 
-            await _colaboradorService.Atualizar(colaborador);            
-
-            return Ok(colaborador);
+            return CustomResponse(colaboradorViewModel);
         }
 
         [HttpDelete("{id}")]
         public async Task<ActionResult<ColaboradorViewModel>> ExcluirColaborador(Guid id)
         {
-            var colaborador = await ObterFornecedor(id);
+            var colaborador = await ObterColaboradorEquipamentos(id);
 
-            if (colaborador == null) return NotFound();
+            if (colaborador == null) return NotFound();            
 
             await _colaboradorService.Remover(id);
 
-            return Ok(colaborador);
+            return CustomResponse();
         }
-
-        public async Task<ColaboradorViewModel> ObterFornecedor(Guid id)
+                
+        private async Task<ColaboradorViewModel> ObterColaboradorEquipamentos(Guid id)
         {
-            return _mapper.Map<ColaboradorViewModel>(await _colaboradorRepository.ObterColaborador(id));
+            return _mapper.Map<ColaboradorViewModel>(await _colaboradorRepository.ObterColaboradorEquipamentos(id));
         }
-
-
-    }
+    }    
 }

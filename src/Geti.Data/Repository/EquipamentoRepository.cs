@@ -12,26 +12,14 @@ namespace Geti.Data.Repository
 {
     public class EquipamentoRepository : Repository<Equipamento>, IEquipamentoRepository
     {
-        public EquipamentoRepository(GetiDbContext context) : base(context) { }
+        public EquipamentoRepository(GetiDbContext context) : base(context) { }       
 
-        public async Task<Equipamento> ObterEquipamento(Guid id)
-        {
-            return await Db.Equipamentos.AsNoTracking()
-                .FirstOrDefaultAsync(e => e.Id == id);
-        }
-
-        public async Task<Equipamento> ObterEquipamentoLicencas()
+        public async Task<Equipamento> ObterEquipamentoLicencas(Guid id)
         {
             return await Db.Equipamentos.AsNoTracking()
                 .Include(e => e.Licencas)
-                .FirstOrDefaultAsync();
+                .FirstOrDefaultAsync(e => e.Id == id);
         }
-
-        public async Task<IEnumerable<Equipamento>> ObterEquipamentos()
-        {
-            return await Db.Equipamentos
-                .OrderBy(e => e.Patrimonio)
-                .ToListAsync();
-        }
+              
     }
 }

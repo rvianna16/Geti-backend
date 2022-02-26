@@ -35,6 +35,13 @@ namespace Geti.Api
             });
 
             services.AddAutoMapper(typeof(Startup));
+            services.AddMvc();
+
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+
+            });
 
             services.AddControllers();
             services.AddSwaggerGen(c =>

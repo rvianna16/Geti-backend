@@ -13,9 +13,7 @@ namespace Geti.Api.ViewModels
         public string Nome { get; set; }
 
         public string Email { get; set; }
-
-
-        [JsonIgnore]
+       
         public IEnumerable<EquipamentoViewModel> Equipamentos { get; set; }
     }
 }

@@ -18,6 +18,11 @@ namespace Geti.Data.Mappings
                 .IsRequired()
                 .HasColumnType("varchar(30)");
 
+            builder.HasMany(c => c.Equipamentos)
+                .WithOne(p => p.Colaborador)
+                .HasForeignKey(p => p.ColaboradorId);
+                
+
             builder.ToTable("Colaboradores");
         }
 

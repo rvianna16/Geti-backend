@@ -40,12 +40,7 @@ namespace Geti.Business.Services
             if (!ExecutarValidacao(new ColaboradorValidation(), colaborador)) return;
 
             await _colaboradorRepository.Atualizar(colaborador);
-        }
-
-        public Task AtualizarEquipamento(Equipamento equipamento)
-        {
-            throw new NotImplementedException();
-        }       
+        }            
 
         public async Task Remover(Guid id)
         {
