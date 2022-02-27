@@ -17,8 +17,10 @@ namespace Geti.Api.Configuration
                 services.AddScoped<IColaboradorService, ColaboradorService>();
                 services.AddScoped<IEquipamentoRepository, EquipamentoRepository>();
                 services.AddScoped<IEquipamentoService, EquipamentoService>();
+                services.AddScoped<IComentarioRepository, ComentarioRepository>();
+                services.AddScoped<IComentarioService, ComentarioService>();
 
-                services.AddScoped<INotificador, Notificador>();
+            services.AddScoped<INotificador, Notificador>();
         
 
                 return services;

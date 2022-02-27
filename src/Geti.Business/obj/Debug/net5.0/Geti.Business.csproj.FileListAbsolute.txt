@@ -2,7 +2,6 @@ D:\Coding\geti\src\Geti.Business\bin\Debug\net5.0\Geti.Business.deps.json
 D:\Coding\geti\src\Geti.Business\bin\Debug\net5.0\Geti.Business.dll
 D:\Coding\geti\src\Geti.Business\bin\Debug\net5.0\ref\Geti.Business.dll
 D:\Coding\geti\src\Geti.Business\bin\Debug\net5.0\Geti.Business.pdb
-D:\Coding\geti\src\Geti.Business\obj\Debug\net5.0\Geti.Business.csproj.AssemblyReference.cache
 D:\Coding\geti\src\Geti.Business\obj\Debug\net5.0\Geti.Business.GeneratedMSBuildEditorConfig.editorconfig
 D:\Coding\geti\src\Geti.Business\obj\Debug\net5.0\Geti.Business.AssemblyInfoInputs.cache
 D:\Coding\geti\src\Geti.Business\obj\Debug\net5.0\Geti.Business.AssemblyInfo.cs

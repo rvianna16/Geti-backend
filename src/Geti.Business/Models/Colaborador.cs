@@ -10,5 +10,6 @@ namespace Geti.Business.Models
         public string Email { get; set; }
 
         public IEnumerable<Equipamento> Equipamentos { get; set; }
+
     }
 }

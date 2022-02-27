@@ -28,6 +28,9 @@ namespace Geti.Data.Mappings
             builder.HasMany(l => l.Licencas)
                 .WithMany(e => e.Equipamentos);
 
+            builder.HasMany(c => c.Comentarios)
+               .WithOne(c => c.Equipamento)
+               .HasForeignKey(c => c.EquipamentoId);
 
             builder.ToTable("Equipamentos");
         }

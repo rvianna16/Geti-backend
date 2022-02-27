@@ -27,9 +27,9 @@ namespace Geti.Api.Controllers
             if (OperacaoValida())
             {
                 return Ok(new
-                {
+                {                    
                     success = true,
-                    response = result
+                    data = result
                 });
             }
 

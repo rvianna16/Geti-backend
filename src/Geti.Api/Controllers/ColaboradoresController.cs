@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Geti.Api.ViewModels;
+using Geti.Api.ViewModels.Colaborador;
 using Geti.Business.Interfaces;
 using Geti.Business.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,6 @@ namespace Geti.Api.Controllers
     [Route("api/colaboradores")]
     public class ColaboradoresController : MainController
     {
-
         private readonly IColaboradorRepository _colaboradorRepository;
         private readonly IColaboradorService _colaboradorService;
         private readonly IMapper _mapper;
@@ -52,7 +52,7 @@ namespace Geti.Api.Controllers
         }
 
         [HttpGet("{id}/equipamentos")]
-        public async Task<ActionResult<ColaboradorViewModel>> ObterColaboradorListaEquipamentos(Guid id)
+        public async Task<ActionResult<ColaboradorEquipamentosViewModel>> ObterColaboradorListaEquipamentos(Guid id)
         {
             var colaborador = await ObterColaboradorEquipamentos(id);
 
@@ -95,9 +95,9 @@ namespace Geti.Api.Controllers
             return CustomResponse();
         }
                 
-        private async Task<ColaboradorViewModel> ObterColaboradorEquipamentos(Guid id)
+        private async Task<ColaboradorEquipamentosViewModel> ObterColaboradorEquipamentos(Guid id)
         {
-            return _mapper.Map<ColaboradorViewModel>(await _colaboradorRepository.ObterColaboradorEquipamentos(id));
+            return _mapper.Map<ColaboradorEquipamentosViewModel>(await _colaboradorRepository.ObterColaboradorEquipamentos(id));
         }
     }    
 }

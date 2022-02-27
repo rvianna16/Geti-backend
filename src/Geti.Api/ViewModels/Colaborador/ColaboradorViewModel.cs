@@ -14,6 +14,5 @@ namespace Geti.Api.ViewModels
 
         public string Email { get; set; }
        
-        public IEnumerable<EquipamentoViewModel> Equipamentos { get; set; }
     }
 }

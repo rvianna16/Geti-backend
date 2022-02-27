@@ -19,7 +19,7 @@ namespace Geti.Business.Models
 
         public StatusEquipamento StatusEquipamento { get; set; }
 
-        public string Comentario { get; set; }
+        public IEnumerable<Comentario> Comentarios { get; set; }
 
         public IEnumerable<Licenca> Licencas { get; set; }
 

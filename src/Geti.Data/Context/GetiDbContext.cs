@@ -10,6 +10,7 @@ namespace Geti.Data.Context
         public GetiDbContext(DbContextOptions options) : base(options) { }
         public DbSet<Colaborador> Colaboradores { get; set; }            
         public DbSet<Equipamento> Equipamentos { get; set; }
+        public DbSet<Comentario> Comentarios { get; set; }
         public DbSet<Licenca> Licencas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

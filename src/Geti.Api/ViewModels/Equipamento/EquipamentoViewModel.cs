@@ -1,11 +1,17 @@
-﻿using Geti.Business.Models;
+﻿using Geti.Api.ViewModels.Equipamento;
+using Geti.Business.Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace Geti.Api.ViewModels
 {
-    public class EquipamentoViewModel : Entity
-    {
+    public class EquipamentoViewModel
+    { 
+
+        [Key]
+        public Guid Id { get; set; }
+
         public Guid ColaboradorId { get; set; }
 
         public string Patrimonio { get; set; }
@@ -22,8 +28,7 @@ namespace Geti.Api.ViewModels
 
         public StatusEquipamento StatusEquipamento { get; set; }       
 
-        public string Comentario { get; set; }
-
-        public IEnumerable<LicencaViewModel> Licencas { get; set; }
+        public IEnumerable<ComentarioViewModel> Comentarios { get; set; }
+        
     }
 }

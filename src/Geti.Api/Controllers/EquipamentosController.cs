@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using Geti.Api.ViewModels;
+using Geti.Api.ViewModels.Equipamento;
 using Geti.Business.Interfaces;
 using Geti.Business.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -14,29 +15,36 @@ namespace Geti.Api.Controllers
     {
         private readonly IEquipamentoRepository _equipamentoRepository;
         private readonly IEquipamentoService _equipamentoService;
+        private readonly IComentarioService _comentarioService;
+        private readonly IComentarioRepository _comentarioRepository;
         private readonly IMapper _mapper;
         public EquipamentosController(
             IEquipamentoRepository equipamentoRepository,
             IEquipamentoService equipamentoService,
+            IComentarioRepository comentarioRepository,
+            IComentarioService comentarioService,
             IMapper mapper,
             INotificador notificador) : base(notificador)
         {
             _equipamentoRepository = equipamentoRepository;
             _equipamentoService = equipamentoService;
+            _comentarioRepository = comentarioRepository;
+            _comentarioService = comentarioService;
             _mapper = mapper;
         }
 
         [HttpGet]
         public async Task<ActionResult<IEnumerable<EquipamentoViewModel>>> ObterEquipamentos()
         {
-            var equipamentos = _mapper.Map<IEnumerable<EquipamentoViewModel>>(await _equipamentoRepository.ObterTodos());
+            var equipamentos = _mapper.Map<IEnumerable<EquipamentoViewModel>>(await _equipamentoRepository.ObterEquipamentosColaboradores());
             return CustomResponse(equipamentos);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<EquipamentoViewModel>> ObterEquipamentoPorId(Guid id)
         {
-            var equipamentoViewModel = _mapper.Map<EquipamentoViewModel>(await _equipamentoRepository.ObterPorId(id));
+            var equipamentoViewModel = await ObterEquipamentoComentarios(id);
+
             if (equipamentoViewModel == null) return NotFound();
 
             return CustomResponse(equipamentoViewModel);
@@ -64,6 +72,28 @@ namespace Geti.Api.Controllers
             return CustomResponse(equipamentoViewModel);
         }
 
+        [HttpPost("{id}/comentario")]
+        public async Task<ActionResult<ComentarioViewModel>> AdicionarComentario(ComentarioViewModel comentarioViewModel)
+        {
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            await _comentarioService.Adicionar(_mapper.Map<Comentario>(comentarioViewModel));
+
+            return CustomResponse(comentarioViewModel);
+        }
+
+        [HttpDelete("comentario/{id}")]
+        public async Task<ActionResult<ComentarioViewModel>> ExcluirComentario(Guid id)
+        {
+            var comentario = await ObterComentario(id);
+
+            if (comentario == null) return NotFound();
+
+            await _comentarioService.Remover(id);
+
+            return CustomResponse();
+        }
+
         [HttpDelete("{id}")]
         public async Task<ActionResult<EquipamentoViewModel>> ExcluirEquipamento(Guid id)
         {
@@ -79,8 +109,18 @@ namespace Geti.Api.Controllers
 
         private async Task<EquipamentoViewModel> ObterEquipamento(Guid id)
         {
-            return _mapper.Map<EquipamentoViewModel>(await _equipamentoRepository.ObterEquipamentoLicencas(id));
+            return _mapper.Map<EquipamentoViewModel>(await _equipamentoRepository.ObterEquipamentoColaborador(id));
            
+        }
+
+        private async Task<EquipamentoViewModel> ObterEquipamentoComentarios(Guid id)
+        {
+            return _mapper.Map<EquipamentoViewModel>(await _equipamentoRepository.ObterEquipamentoComentarios(id));
+        }
+
+        private async Task<ComentarioViewModel> ObterComentario(Guid id)
+        {
+            return _mapper.Map<ComentarioViewModel>(await _comentarioRepository.ObterComentario(id));
         }
 
     }

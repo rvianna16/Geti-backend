@@ -4,14 +4,16 @@ using Geti.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Geti.Data.Migrations
 {
     [DbContext(typeof(GetiDbContext))]
-    partial class GetiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220227014329_AddCampoComentario")]
+    partial class AddCampoComentario
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,6 +61,9 @@ namespace Geti.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
+                    b.Property<Guid>("ColaboradorId")
+                        .HasColumnType("uniqueidentifier");
+
                     b.Property<DateTime>("DataComentario")
                         .HasColumnType("datetime2");
 
@@ -70,9 +75,11 @@ namespace Geti.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ColaboradorId");
+
                     b.HasIndex("EquipamentoId");
 
-                    b.ToTable("Comentarios");
+                    b.ToTable("Comentario");
                 });
 
             modelBuilder.Entity("Geti.Business.Models.Equipamento", b =>
@@ -158,10 +165,17 @@ namespace Geti.Data.Migrations
 
             modelBuilder.Entity("Geti.Business.Models.Comentario", b =>
                 {
+                    b.HasOne("Geti.Business.Models.Colaborador", "Colaborador")
+                        .WithMany()
+                        .HasForeignKey("ColaboradorId")
+                        .IsRequired();
+
                     b.HasOne("Geti.Business.Models.Equipamento", "Equipamento")
                         .WithMany("Comentarios")
                         .HasForeignKey("EquipamentoId")
                         .IsRequired();
+
+                    b.Navigation("Colaborador");
 
                     b.Navigation("Equipamento");
                 });
