@@ -44,6 +44,13 @@ namespace Geti.Business.Services
 
         public async Task Remover(Guid id)
         {
+            var colaborador = _colaboradorRepository.ObterColaboradorEquipamentos(id);
+
+            if (colaborador.Result.Equipamentos.Any())
+            {
+                Notificar("Não é possível excluir este colaborador, pois ele possui equipamentos vinculados a ele.");
+                return;
+            }
             await _colaboradorRepository.Remover(id);
         }
 

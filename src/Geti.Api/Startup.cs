@@ -43,14 +43,7 @@ namespace Geti.Api
 
             });
 
-            services.AddCors(options =>
-            {
-                options.AddPolicy("Development",
-                                 builder => builder.AllowAnyMethod()
-                                 .AllowAnyMethod()
-                                 .AllowAnyHeader()
-                                 .AllowCredentials());
-            });
+            services.AddCors();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -71,7 +64,11 @@ namespace Geti.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Geti.Api v1"));
             }
-            app.UseCors("Development");
+            app.UseCors(x => x
+              .AllowAnyOrigin()
+              .AllowAnyMethod()
+              .AllowAnyHeader());
+
             app.UseHttpsRedirection();
 
             app.UseRouting();

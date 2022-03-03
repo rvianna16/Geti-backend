@@ -9,3 +9,4 @@ D:\Coding\geti\src\Geti.Business\obj\Debug\net5.0\Geti.Business.csproj.CoreCompi
 D:\Coding\geti\src\Geti.Business\obj\Debug\net5.0\Geti.Business.dll
 D:\Coding\geti\src\Geti.Business\obj\Debug\net5.0\ref\Geti.Business.dll
 D:\Coding\geti\src\Geti.Business\obj\Debug\net5.0\Geti.Business.pdb
+D:\Coding\geti\src\Geti.Business\obj\Debug\net5.0\Geti.Business.csproj.AssemblyReference.cache
