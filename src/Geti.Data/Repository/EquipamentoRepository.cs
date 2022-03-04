@@ -26,10 +26,12 @@ namespace Geti.Data.Repository
                 .FirstOrDefaultAsync(e => e.Id == id);
         }
 
-        public async Task<Equipamento> ObterEquipamentoComentarios(Guid id)
+        public async Task<Equipamento> ObterEquipamentoDetalhes(Guid id)
         {
-            return await Db.Equipamentos.AsNoTracking().Include(c => c.Colaborador)
+            return await Db.Equipamentos.AsNoTracking()
+                .Include(c => c.Colaborador)
                 .Include(c => c.Comentarios)
+                .Include(l => l.Licencas)
                 .FirstOrDefaultAsync(e => e.Id == id);
         }
 

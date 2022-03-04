@@ -20,6 +20,10 @@ namespace Geti.Api.Configuration
             CreateMap<EquipamentoViewModel, Equipamento>();
             CreateMap<Equipamento, EquipamentoViewModel>()
                 .ForMember(dest => dest.NomeColaborador, act => act.MapFrom(src => src.Colaborador.Nome));
+
+            CreateMap<EquipamentoDetalhesViewModel, Equipamento>().ReverseMap();
+            CreateMap<Equipamento, EquipamentoDetalhesViewModel>()
+                .ForMember(dest => dest.NomeColaborador, act => act.MapFrom(src => src.Colaborador.Nome));
         }
     }
 }

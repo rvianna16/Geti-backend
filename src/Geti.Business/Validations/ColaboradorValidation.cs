@@ -18,7 +18,7 @@ namespace Geti.Business.Validations
             RuleFor(c => c.Email)
                 .NotEmpty()
                 .WithMessage("E-mail do colaborador não pode estar vazio")
-                .Length(2, 25)
+                .Length(2, 50)
                 .WithMessage("E-mail do colaborador precisa ter entre {MinLength} e {MaxLength} caracteres");
         }
     }

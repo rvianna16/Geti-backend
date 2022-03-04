@@ -40,10 +40,10 @@ namespace Geti.Api.Controllers
             return CustomResponse(equipamentos);
         }
 
-        [HttpGet("{id}")]
-        public async Task<ActionResult<EquipamentoViewModel>> ObterEquipamentoPorId(Guid id)
+        [HttpGet("{id}/detalhes")]
+        public async Task<ActionResult<EquipamentoDetalhesViewModel>> ObterEquipamentoPorId(Guid id)
         {
-            var equipamentoViewModel = await ObterEquipamentoComentarios(id);
+            var equipamentoViewModel = await ObterEquipamentoDetalhes(id);
 
             if (equipamentoViewModel == null) return NotFound();
 
@@ -113,9 +113,9 @@ namespace Geti.Api.Controllers
            
         }
 
-        private async Task<EquipamentoViewModel> ObterEquipamentoComentarios(Guid id)
+        private async Task<EquipamentoDetalhesViewModel> ObterEquipamentoDetalhes(Guid id)
         {
-            return _mapper.Map<EquipamentoViewModel>(await _equipamentoRepository.ObterEquipamentoComentarios(id));
+            return _mapper.Map<EquipamentoDetalhesViewModel>(await _equipamentoRepository.ObterEquipamentoDetalhes(id));
         }
 
         private async Task<ComentarioViewModel> ObterComentario(Guid id)

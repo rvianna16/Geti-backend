@@ -16,7 +16,7 @@ namespace Geti.Data.Mappings
 
             builder.Property(p => p.Email)
                 .IsRequired()
-                .HasColumnType("varchar(30)");
+                .HasColumnType("varchar(50)");
 
             builder.HasMany(c => c.Equipamentos)
                 .WithOne(p => p.Colaborador)

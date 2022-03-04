@@ -5,11 +5,11 @@ namespace Geti.Business.Models
     [JsonConverter(typeof(JsonStringEnumConverter))]
     public enum TipoEquipamento
     {
-        Desktop,
-        Notebook,
-        Servidor,
-        Monitor,
-        Impressora,
+        Desktop = 1,
+        Notebook = 2,
+        Servidor = 3,
+        Monitor = 4,
+        Impressora = 5,
 
     }
 }

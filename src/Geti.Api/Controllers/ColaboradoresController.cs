@@ -33,7 +33,6 @@ namespace Geti.Api.Controllers
         {
             var colaborador = _mapper.Map<IEnumerable<ColaboradorViewModel>>(await _colaboradorRepository.ObterTodos());
             
-
             return CustomResponse(colaborador);
         }
 

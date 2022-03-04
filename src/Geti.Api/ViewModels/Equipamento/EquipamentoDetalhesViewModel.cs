@@ -1,13 +1,12 @@
-﻿using Geti.Api.ViewModels.Equipamento;
-using Geti.Business.Models;
+﻿using Geti.Business.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace Geti.Api.ViewModels
+namespace Geti.Api.ViewModels.Equipamento
 {
-    public class EquipamentoViewModel
-    { 
+    public class EquipamentoDetalhesViewModel
+    {
 
         [Key]
         public Guid Id { get; set; }
@@ -34,7 +33,11 @@ namespace Geti.Api.ViewModels
 
         public string IP { get; set; }
 
-        public StatusEquipamento StatusEquipamento { get; set; }    
-        
+        public StatusEquipamento StatusEquipamento { get; set; }
+
+        public IEnumerable<LicencaViewModel> Licencas { get; set; }
+
+        public IEnumerable<ComentarioViewModel> Comentarios { get; set; }
+
     }
 }

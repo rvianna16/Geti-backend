@@ -14,17 +14,43 @@ namespace Geti.Business.Validations
         {
             RuleFor(e => e.Patrimonio)
                 .NotEmpty()
-                .WithMessage("O campo {PropertyName} não pode estar vazio")
-                .Length(1, 50)
-                .WithMessage("O campo {PropertyName} precisa ter entre {MinLength} e {MaxLength} caracteres");
+                .WithMessage("Patrimônio do equipamento não pode estar vazio")
+                .MinimumLength(2)
+                .WithMessage("Patrimônio do equipamento precisa ter no mínimo {MinLength} caracteres")
+                .MaximumLength(30)
+                .WithMessage("Patrimônio do equipamento deve ter no máximo {MaxLength} caracteres");
 
-            RuleFor(e => e.ColaboradorId)
+            RuleFor(e => e.Descricao)
+                .MaximumLength(4000)
+                .WithMessage("Descrição deve ter no máximo {MaxLength} caracteres");
+
+            RuleFor(e => e.TipoEquipamento)
                 .NotEmpty()
-                .WithMessage("O campo {PropertyName} não pode estar vazio");
+                .WithMessage("Tipo do equipamento deve ser informado");
+
+            RuleFor(e => e.ColaboradorId)                
+                .NotNull()
+                .WithMessage("Colaborador responsável pelo equipamento deve ser informado");
 
             RuleFor(e => e.StatusEquipamento)
                 .NotEmpty()
-                .WithMessage("O campo {PropertyName} não pode estar vazio");
+                .WithMessage("Status do equipamento deve ser informado");
+
+            RuleFor(e => e.Modelo)
+                .MaximumLength(50)
+                .WithMessage("Modelo deve ter no máximo {MaxLength} caracteres");
+
+            RuleFor(e => e.Processador)
+                .MaximumLength(100)
+                .WithMessage("Processador deve ter no máximo {MaxLength} caracteres");
+
+            RuleFor(e => e.Armazenamento)
+                .MaximumLength(100)
+                .WithMessage("Armazenamento deve ter no máximo {MaxLength} caracteres");
+
+            RuleFor(e => e.IP)
+                .MaximumLength(30)
+                .WithMessage("IP deve ter no máximo {MaxLength} caracteres");
 
         }
     }

@@ -17,6 +17,14 @@ namespace Geti.Business.Models
 
         public string NotaFiscal { get; set; }
 
+        public string Modelo { get; set; }
+
+        public string Armazenamento { get; set; }
+
+        public string Processador { get; set; }
+
+        public string IP { get; set; }
+
         public StatusEquipamento StatusEquipamento { get; set; }
 
         public IEnumerable<Comentario> Comentarios { get; set; }
