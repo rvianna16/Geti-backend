@@ -5853,11 +5853,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Coding\\geti\\src\\Geti.Data\\Geti.Data.csproj",
+      "projectUniqueName": "D:\\Coding\\Geti-backend\\src\\Geti.Data\\Geti.Data.csproj",
       "projectName": "Geti.Data",
-      "projectPath": "D:\\Coding\\geti\\src\\Geti.Data\\Geti.Data.csproj",
+      "projectPath": "D:\\Coding\\Geti-backend\\src\\Geti.Data\\Geti.Data.csproj",
       "packagesPath": "C:\\Users\\Rodrigo Vianna\\.nuget\\packages\\",
-      "outputPath": "D:\\Coding\\geti\\src\\Geti.Data\\obj\\",
+      "outputPath": "D:\\Coding\\Geti-backend\\src\\Geti.Data\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Rodrigo Vianna\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -5874,8 +5874,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\Coding\\geti\\src\\Geti.Business\\Geti.Business.csproj": {
-              "projectPath": "D:\\Coding\\geti\\src\\Geti.Business\\Geti.Business.csproj"
+            "D:\\Coding\\Geti-backend\\src\\Geti.Business\\Geti.Business.csproj": {
+              "projectPath": "D:\\Coding\\Geti-backend\\src\\Geti.Business\\Geti.Business.csproj"
             }
           }
         }

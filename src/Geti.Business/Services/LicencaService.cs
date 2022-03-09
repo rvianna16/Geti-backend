@@ -1,23 +1,42 @@
 ﻿using Geti.Business.Interfaces;
 using Geti.Business.Models;
+using Geti.Business.Validations;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Geti.Business.Services
 {
     public class LicencaService : BaseService, ILicencaService
     {
-
-        public LicencaService(INotificador notificador) : base(notificador) { }
-
-        public Task Adicionar(Licenca licenca)
+        private readonly ILicencaRepository _licencaRepository;
+        private readonly IEquipamentoRepository _equipamentoRepository;
+        public LicencaService(
+            INotificador notificador,
+            ILicencaRepository licencaRepository, IEquipamentoRepository equipamentoRepository) : base(notificador)
         {
-            throw new NotImplementedException();
+            _licencaRepository = licencaRepository;
+            _equipamentoRepository = equipamentoRepository;
         }
 
-        public Task Atualizar(Licenca licenca)
+        public async Task Adicionar(Licenca licenca)
         {
-            throw new NotImplementedException();
+            if (!ExecutarValidacao(new LicencaValidation(), licenca)) return;
+
+            if (_licencaRepository.Buscar(f => f.Nome == licenca.Nome).Result.Any())
+            {
+                Notificar("Já existe uma licença com este nome cadastrada");
+                return;
+            }           
+
+            await _licencaRepository.Adicionar(licenca);
+        }
+
+        public async Task Atualizar(Licenca licenca)
+        {
+            if (!ExecutarValidacao(new LicencaValidation(), licenca)) return;
+
+            await _licencaRepository.Atualizar(licenca);
         }
 
         public Task Remover(Guid id)

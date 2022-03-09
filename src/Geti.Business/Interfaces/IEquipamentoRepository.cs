@@ -13,6 +13,5 @@ namespace Geti.Business.Interfaces
 
         Task<Equipamento> ObterEquipamentoDetalhes(Guid id);
 
-        Task<Equipamento> ObterEquipamentoLicencas(Guid id);
     }
 }

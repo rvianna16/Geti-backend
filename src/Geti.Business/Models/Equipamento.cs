@@ -29,7 +29,7 @@ namespace Geti.Business.Models
 
         public IEnumerable<Comentario> Comentarios { get; set; }
 
-        public IEnumerable<Licenca> Licencas { get; set; }
+        public ICollection<EquipamentoLicenca> Licencas { get; set; }
 
         public Colaborador Colaborador { get; set; }
 

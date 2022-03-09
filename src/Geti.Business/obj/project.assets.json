@@ -47,11 +47,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Coding\\geti\\src\\Geti.Business\\Geti.Business.csproj",
+      "projectUniqueName": "D:\\Coding\\Geti-backend\\src\\Geti.Business\\Geti.Business.csproj",
       "projectName": "Geti.Business",
-      "projectPath": "D:\\Coding\\geti\\src\\Geti.Business\\Geti.Business.csproj",
+      "projectPath": "D:\\Coding\\Geti-backend\\src\\Geti.Business\\Geti.Business.csproj",
       "packagesPath": "C:\\Users\\Rodrigo Vianna\\.nuget\\packages\\",
-      "outputPath": "D:\\Coding\\geti\\src\\Geti.Business\\obj\\",
+      "outputPath": "D:\\Coding\\Geti-backend\\src\\Geti.Business\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Rodrigo Vianna\\AppData\\Roaming\\NuGet\\NuGet.Config",

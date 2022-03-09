@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Coding\\geti\\src\\Geti.Api\\Geti.Api.csproj": {}
+    "D:\\Coding\\Geti-backend\\src\\Geti.Api\\Geti.Api.csproj": {}
   },
   "projects": {
-    "D:\\Coding\\geti\\src\\Geti.Api\\Geti.Api.csproj": {
+    "D:\\Coding\\Geti-backend\\src\\Geti.Api\\Geti.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Coding\\geti\\src\\Geti.Api\\Geti.Api.csproj",
+        "projectUniqueName": "D:\\Coding\\Geti-backend\\src\\Geti.Api\\Geti.Api.csproj",
         "projectName": "Geti.Api",
-        "projectPath": "D:\\Coding\\geti\\src\\Geti.Api\\Geti.Api.csproj",
+        "projectPath": "D:\\Coding\\Geti-backend\\src\\Geti.Api\\Geti.Api.csproj",
         "packagesPath": "C:\\Users\\Rodrigo Vianna\\.nuget\\packages\\",
-        "outputPath": "D:\\Coding\\geti\\src\\Geti.Api\\obj\\",
+        "outputPath": "D:\\Coding\\Geti-backend\\src\\Geti.Api\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rodrigo Vianna\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,11 +28,11 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Coding\\geti\\src\\Geti.Business\\Geti.Business.csproj": {
-                "projectPath": "D:\\Coding\\geti\\src\\Geti.Business\\Geti.Business.csproj"
+              "D:\\Coding\\Geti-backend\\src\\Geti.Business\\Geti.Business.csproj": {
+                "projectPath": "D:\\Coding\\Geti-backend\\src\\Geti.Business\\Geti.Business.csproj"
               },
-              "D:\\Coding\\geti\\src\\Geti.Data\\Geti.Data.csproj": {
-                "projectPath": "D:\\Coding\\geti\\src\\Geti.Data\\Geti.Data.csproj"
+              "D:\\Coding\\Geti-backend\\src\\Geti.Data\\Geti.Data.csproj": {
+                "projectPath": "D:\\Coding\\Geti-backend\\src\\Geti.Data\\Geti.Data.csproj"
               }
             }
           }
@@ -98,14 +98,14 @@
         }
       }
     },
-    "D:\\Coding\\geti\\src\\Geti.Business\\Geti.Business.csproj": {
+    "D:\\Coding\\Geti-backend\\src\\Geti.Business\\Geti.Business.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Coding\\geti\\src\\Geti.Business\\Geti.Business.csproj",
+        "projectUniqueName": "D:\\Coding\\Geti-backend\\src\\Geti.Business\\Geti.Business.csproj",
         "projectName": "Geti.Business",
-        "projectPath": "D:\\Coding\\geti\\src\\Geti.Business\\Geti.Business.csproj",
+        "projectPath": "D:\\Coding\\Geti-backend\\src\\Geti.Business\\Geti.Business.csproj",
         "packagesPath": "C:\\Users\\Rodrigo Vianna\\.nuget\\packages\\",
-        "outputPath": "D:\\Coding\\geti\\src\\Geti.Business\\obj\\",
+        "outputPath": "D:\\Coding\\Geti-backend\\src\\Geti.Business\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rodrigo Vianna\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -158,14 +158,14 @@
         }
       }
     },
-    "D:\\Coding\\geti\\src\\Geti.Data\\Geti.Data.csproj": {
+    "D:\\Coding\\Geti-backend\\src\\Geti.Data\\Geti.Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Coding\\geti\\src\\Geti.Data\\Geti.Data.csproj",
+        "projectUniqueName": "D:\\Coding\\Geti-backend\\src\\Geti.Data\\Geti.Data.csproj",
         "projectName": "Geti.Data",
-        "projectPath": "D:\\Coding\\geti\\src\\Geti.Data\\Geti.Data.csproj",
+        "projectPath": "D:\\Coding\\Geti-backend\\src\\Geti.Data\\Geti.Data.csproj",
         "packagesPath": "C:\\Users\\Rodrigo Vianna\\.nuget\\packages\\",
-        "outputPath": "D:\\Coding\\geti\\src\\Geti.Data\\obj\\",
+        "outputPath": "D:\\Coding\\Geti-backend\\src\\Geti.Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Rodrigo Vianna\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -182,8 +182,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Coding\\geti\\src\\Geti.Business\\Geti.Business.csproj": {
-                "projectPath": "D:\\Coding\\geti\\src\\Geti.Business\\Geti.Business.csproj"
+              "D:\\Coding\\Geti-backend\\src\\Geti.Business\\Geti.Business.csproj": {
+                "projectPath": "D:\\Coding\\Geti-backend\\src\\Geti.Business\\Geti.Business.csproj"
               }
             }
           }

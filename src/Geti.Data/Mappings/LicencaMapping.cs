@@ -19,10 +19,7 @@ namespace Geti.Data.Mappings
                 .HasColumnType("varchar(100)");
 
             builder.Property(p => p.Software)
-                .HasColumnType("varchar(50)");
-
-            builder.HasMany(e => e.Equipamentos)
-                .WithMany(l => l.Licencas);
+                .HasColumnType("varchar(50)");            
 
             builder.ToTable("Licencas");
         }

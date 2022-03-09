@@ -35,10 +35,7 @@ namespace Geti.Data.Mappings
 
             builder.Property(p => p.StatusEquipamento)
                 .IsRequired()
-                .HasColumnType("varchar(15)");            
-
-            builder.HasMany(l => l.Licencas)
-                .WithMany(e => e.Equipamentos);
+                .HasColumnType("varchar(15)");     
 
             builder.HasMany(c => c.Comentarios)
                .WithOne(c => c.Equipamento)

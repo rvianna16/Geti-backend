@@ -13,24 +13,24 @@ namespace Geti.Data.Repository
     {
 
         public LicencaRepository(GetiDbContext context) : base(context) { }
-        
-        public async Task<Licenca> ObterLicenca(Guid id)
-        {
-            return await Db.Licencas.AsNoTracking()
-                .FirstOrDefaultAsync(l => l.Id == id);
-        }
 
-        public async Task<IEnumerable<Licenca>> ObterLicencas()
+        public async Task<Licenca> InserirLicencaEquipamento(Licenca licenca)
         {
-            return await Db.Licencas
-                .OrderBy(l => l.Nome)
-                .ToListAsync();
+            foreach (var equipamento in licenca.Equipamentos)
+            {
+                var equipamentoConsultado = await Db.Equipamentos.AsNoTracking().FirstAsync(p => p.Id == equipamento.Id);
+                Db.Entry(equipamento).CurrentValues.SetValues(equipamentoConsultado);
+            }
+
+            return licenca;
         }
 
         public async Task<Licenca> ObterLicencaEquipamentos(Guid id)
         {
-            return await Db.Licencas.AsNoTracking().Include(e => e.Equipamentos)
-               .OrderBy(l => l.Nome).FirstOrDefaultAsync();
+            return await Db.Licencas.AsNoTracking()
+                .Include(e => e.Equipamentos)
+                .ThenInclude(e => e.Equipamento)
+                .FirstOrDefaultAsync(e => e.Id.Equals(id));
         }
     }
 }

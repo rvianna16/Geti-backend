@@ -19,10 +19,13 @@ namespace Geti.Api.Configuration
                 services.AddScoped<IEquipamentoService, EquipamentoService>();
                 services.AddScoped<IComentarioRepository, ComentarioRepository>();
                 services.AddScoped<IComentarioService, ComentarioService>();
+                services.AddScoped<ILicencaRepository, LicencaRepository>();
+                services.AddScoped<ILicencaService, LicencaService>();
+                services.AddScoped<IEquipamentoLicencaRepository, EquipamentoLicencaRepository>();
+                services.AddScoped<IEquipamentoLicencaService, EquipamentoLicencaService>();
 
-            services.AddScoped<INotificador, Notificador>();
+                services.AddScoped<INotificador, Notificador>();
         
-
                 return services;
             }
     }

@@ -32,15 +32,9 @@ namespace Geti.Data.Repository
                 .Include(c => c.Colaborador)
                 .Include(c => c.Comentarios)
                 .Include(l => l.Licencas)
+                .ThenInclude(l => l.Licenca)
                 .FirstOrDefaultAsync(e => e.Id == id);
-        }
-
-        public async Task<Equipamento> ObterEquipamentoLicencas(Guid id)
-        {
-            return await Db.Equipamentos.AsNoTracking()
-                .Include(e => e.Licencas)
-                .FirstOrDefaultAsync(e => e.Id == id);
-        }
+        }       
 
     }
 }

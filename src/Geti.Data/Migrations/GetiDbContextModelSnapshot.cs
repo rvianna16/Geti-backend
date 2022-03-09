@@ -19,21 +19,6 @@ namespace Geti.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("EquipamentoLicenca", b =>
-                {
-                    b.Property<Guid>("EquipamentosId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<Guid>("LicencasId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("EquipamentosId", "LicencasId");
-
-                    b.HasIndex("LicencasId");
-
-                    b.ToTable("EquipamentoLicenca");
-                });
-
             modelBuilder.Entity("Geti.Business.Models.Colaborador", b =>
                 {
                     b.Property<Guid>("Id")
@@ -124,6 +109,27 @@ namespace Geti.Data.Migrations
                     b.ToTable("Equipamentos");
                 });
 
+            modelBuilder.Entity("Geti.Business.Models.EquipamentoLicenca", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("EquipamentoId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("LicencaId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EquipamentoId");
+
+                    b.HasIndex("LicencaId");
+
+                    b.ToTable("EquipamentoLicenca");
+                });
+
             modelBuilder.Entity("Geti.Business.Models.Licenca", b =>
                 {
                     b.Property<Guid>("Id")
@@ -140,6 +146,9 @@ namespace Geti.Data.Migrations
                     b.Property<DateTime>("DataExpiracao")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("Disponivel")
+                        .HasColumnType("int");
+
                     b.Property<string>("Nome")
                         .IsRequired()
                         .HasColumnType("varchar(50)");
@@ -153,19 +162,6 @@ namespace Geti.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Licencas");
-                });
-
-            modelBuilder.Entity("EquipamentoLicenca", b =>
-                {
-                    b.HasOne("Geti.Business.Models.Equipamento", null)
-                        .WithMany()
-                        .HasForeignKey("EquipamentosId")
-                        .IsRequired();
-
-                    b.HasOne("Geti.Business.Models.Licenca", null)
-                        .WithMany()
-                        .HasForeignKey("LicencasId")
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("Geti.Business.Models.Comentario", b =>
@@ -188,6 +184,23 @@ namespace Geti.Data.Migrations
                     b.Navigation("Colaborador");
                 });
 
+            modelBuilder.Entity("Geti.Business.Models.EquipamentoLicenca", b =>
+                {
+                    b.HasOne("Geti.Business.Models.Equipamento", "Equipamento")
+                        .WithMany("Licencas")
+                        .HasForeignKey("EquipamentoId")
+                        .IsRequired();
+
+                    b.HasOne("Geti.Business.Models.Licenca", "Licenca")
+                        .WithMany("Equipamentos")
+                        .HasForeignKey("LicencaId")
+                        .IsRequired();
+
+                    b.Navigation("Equipamento");
+
+                    b.Navigation("Licenca");
+                });
+
             modelBuilder.Entity("Geti.Business.Models.Colaborador", b =>
                 {
                     b.Navigation("Equipamentos");
@@ -196,6 +209,13 @@ namespace Geti.Data.Migrations
             modelBuilder.Entity("Geti.Business.Models.Equipamento", b =>
                 {
                     b.Navigation("Comentarios");
+
+                    b.Navigation("Licencas");
+                });
+
+            modelBuilder.Entity("Geti.Business.Models.Licenca", b =>
+                {
+                    b.Navigation("Equipamentos");
                 });
 #pragma warning restore 612, 618
         }

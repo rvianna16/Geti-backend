@@ -1,4 +1,5 @@
-﻿using Geti.Business.Models;
+﻿using Geti.Api.ViewModels.Licenca;
+using Geti.Business.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -35,7 +36,7 @@ namespace Geti.Api.ViewModels.Equipamento
 
         public StatusEquipamento StatusEquipamento { get; set; }
 
-        public IEnumerable<LicencaViewModel> Licencas { get; set; }
+        public IEnumerable<LicencaEquipamentoBasicoViewModel> Licencas { get; set; }
 
         public IEnumerable<ComentarioViewModel> Comentarios { get; set; }
 
