@@ -31,7 +31,7 @@ namespace Geti.Data.Migrations
 
                     b.Property<string>("Nome")
                         .IsRequired()
-                        .HasColumnType("varchar(30)");
+                        .HasColumnType("varchar(100)");
 
                     b.HasKey("Id");
 
@@ -72,15 +72,17 @@ namespace Geti.Data.Migrations
                     b.Property<Guid>("ColaboradorId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("DataAquisicao")
+                    b.Property<DateTime?>("DataAquisicao")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Descricao")
-                        .IsRequired()
                         .HasColumnType("varchar(4000)");
 
                     b.Property<string>("IP")
                         .HasColumnType("varchar(30)");
+
+                    b.Property<string>("Memoria")
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("Modelo")
                         .HasColumnType("varchar(50)");
@@ -143,7 +145,7 @@ namespace Geti.Data.Migrations
                         .IsRequired()
                         .HasColumnType("varchar(100)");
 
-                    b.Property<DateTime>("DataExpiracao")
+                    b.Property<DateTime?>("DataExpiracao")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("Disponivel")
@@ -156,12 +158,32 @@ namespace Geti.Data.Migrations
                     b.Property<int>("Quantidade")
                         .HasColumnType("int");
 
-                    b.Property<string>("Software")
-                        .HasColumnType("varchar(50)");
+                    b.Property<Guid>("SoftwareId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
+                    b.HasIndex("SoftwareId");
+
                     b.ToTable("Licencas");
+                });
+
+            modelBuilder.Entity("Geti.Business.Models.Software", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("Descricao")
+                        .HasColumnType("varchar(2000)");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnType("varchar(100)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Softwares");
                 });
 
             modelBuilder.Entity("Geti.Business.Models.Comentario", b =>
@@ -201,6 +223,16 @@ namespace Geti.Data.Migrations
                     b.Navigation("Licenca");
                 });
 
+            modelBuilder.Entity("Geti.Business.Models.Licenca", b =>
+                {
+                    b.HasOne("Geti.Business.Models.Software", "Software")
+                        .WithMany("Licencas")
+                        .HasForeignKey("SoftwareId")
+                        .IsRequired();
+
+                    b.Navigation("Software");
+                });
+
             modelBuilder.Entity("Geti.Business.Models.Colaborador", b =>
                 {
                     b.Navigation("Equipamentos");
@@ -216,6 +248,11 @@ namespace Geti.Data.Migrations
             modelBuilder.Entity("Geti.Business.Models.Licenca", b =>
                 {
                     b.Navigation("Equipamentos");
+                });
+
+            modelBuilder.Entity("Geti.Business.Models.Software", b =>
+                {
+                    b.Navigation("Licencas");
                 });
 #pragma warning restore 612, 618
         }

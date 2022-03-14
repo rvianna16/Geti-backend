@@ -12,6 +12,7 @@ namespace Geti.Data.Context
         public DbSet<Equipamento> Equipamentos { get; set; }
         public DbSet<Comentario> Comentarios { get; set; }
         public DbSet<Licenca> Licencas { get; set; }
+        public DbSet<Software> Softwares { get; set; }
         public DbSet<EquipamentoLicenca> EquipamentoLicenca { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

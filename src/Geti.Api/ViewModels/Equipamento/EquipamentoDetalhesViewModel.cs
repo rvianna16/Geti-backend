@@ -20,7 +20,7 @@ namespace Geti.Api.ViewModels.Equipamento
 
         public string Descricao { get; set; }
 
-        public DateTime DataAquisicao { get; set; }
+        public DateTime? DataAquisicao { get; set; }
 
         public string NomeColaborador { get; set; }
 
@@ -29,6 +29,8 @@ namespace Geti.Api.ViewModels.Equipamento
         public string Modelo { get; set; }
 
         public string Armazenamento { get; set; }
+
+        public string Memoria { get; set; }
 
         public string Processador { get; set; }
 

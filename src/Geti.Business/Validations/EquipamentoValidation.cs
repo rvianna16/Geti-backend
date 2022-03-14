@@ -1,10 +1,5 @@
 ﻿using FluentValidation;
 using Geti.Business.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Geti.Business.Validations
 {
@@ -25,15 +20,19 @@ namespace Geti.Business.Validations
                 .WithMessage("Descrição deve ter no máximo {MaxLength} caracteres");
 
             RuleFor(e => e.TipoEquipamento)
-                .NotEmpty()
+                .IsInEnum().NotEmpty()
                 .WithMessage("Tipo do equipamento deve ser informado");
+
+            RuleFor(e => e.DataAquisicao)
+                .NotEmpty()
+                .WithMessage("Data de Aquisição deve ser informada");
 
             RuleFor(e => e.ColaboradorId)                
                 .NotNull()
                 .WithMessage("Colaborador responsável pelo equipamento deve ser informado");
 
             RuleFor(e => e.StatusEquipamento)
-                .NotEmpty()
+                .IsInEnum().NotEmpty()
                 .WithMessage("Status do equipamento deve ser informado");
 
             RuleFor(e => e.Modelo)

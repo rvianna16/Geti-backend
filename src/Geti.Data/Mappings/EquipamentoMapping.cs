@@ -15,7 +15,6 @@ namespace Geti.Data.Mappings
                 .HasColumnType("varchar(30)");
 
             builder.Property(p => p.Descricao)
-                .IsRequired()
                 .HasColumnType("varchar(4000)");
 
             builder.Property(p => p.NotaFiscal)
@@ -25,6 +24,9 @@ namespace Geti.Data.Mappings
                .HasColumnType("varchar(50)");
 
             builder.Property(p => p.Armazenamento)
+               .HasColumnType("varchar(100)");
+
+            builder.Property(p => p.Memoria)
                .HasColumnType("varchar(100)");
 
             builder.Property(p => p.Processador)

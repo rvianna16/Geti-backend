@@ -16,13 +16,15 @@ namespace Geti.Data.Repository
 
         public async Task<IEnumerable<Equipamento>> ObterEquipamentosColaboradores()
         {
-            return await Db.Equipamentos.AsNoTracking().Include(c => c.Colaborador)
+            return await Db.Equipamentos.AsNoTracking()
+                .Include(c => c.Colaborador)
                 .OrderBy(e => e.Patrimonio).ToListAsync();
         }
 
         public async Task<Equipamento> ObterEquipamentoColaborador(Guid id)
         {
-            return await Db.Equipamentos.AsNoTracking().Include(c => c.Colaborador)
+            return await Db.Equipamentos.AsNoTracking()
+                .Include(c => c.Colaborador)
                 .FirstOrDefaultAsync(e => e.Id == id);
         }
 
@@ -33,6 +35,7 @@ namespace Geti.Data.Repository
                 .Include(c => c.Comentarios)
                 .Include(l => l.Licencas)
                 .ThenInclude(l => l.Licenca)
+                .ThenInclude(l => l.Software)
                 .FirstOrDefaultAsync(e => e.Id == id);
         }       
 

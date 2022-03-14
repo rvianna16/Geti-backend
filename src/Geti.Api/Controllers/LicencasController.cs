@@ -36,7 +36,7 @@ namespace Geti.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<LicencaViewModel>>> ObterLicencas()
         {
-            var licencas = _mapper.Map<IEnumerable<LicencaViewModel>>(await _licencaRepository.ObterTodos());
+            var licencas = _mapper.Map<IEnumerable<LicencaViewModel>>(await _licencaRepository.ObterLicencaSoftware());
             return CustomResponse(licencas);
         }
 
@@ -55,10 +55,35 @@ namespace Geti.Api.Controllers
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            await _licencaRepository.Adicionar(_mapper.Map<Licenca>(licencaViewModel));
+            await _licencaService.Adicionar(_mapper.Map<Licenca>(licencaViewModel));
 
             return CustomResponse(licencaViewModel);
         }
+
+        [HttpPut("{id}")]
+        public async Task<ActionResult<LicencaViewModel>> AtualizarLicenca(Guid id, LicencaViewModel licencaViewModel)
+        {
+            if (id != licencaViewModel.Id) return BadRequest();
+
+            if (!ModelState.IsValid) return CustomResponse(ModelState);
+
+            await _licencaRepository.Atualizar(_mapper.Map<Licenca>(licencaViewModel));
+
+            return CustomResponse(licencaViewModel);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<LicencaViewModel>> ExcluirLicenca(Guid id)
+        {
+            var licenca = await ObterLicencaDetalhes(id);
+
+            if (licenca == null) return NotFound();
+
+            await _licencaService.Remover(id);
+
+            return CustomResponse();
+        }
+
 
         [HttpPost("vincular/equipamento")]
         public async Task<ActionResult<AddEquipamentoLicencaViewModel>> VincularLicenca(AddEquipamentoLicencaViewModel licencaViewModel)
@@ -70,7 +95,7 @@ namespace Geti.Api.Controllers
             return CustomResponse(licencaViewModel);
         }
 
-        [HttpDelete("vincular/equipamento")]
+        [HttpDelete("desvincular/equipamento/{id}")]
         public async Task<ActionResult<AddEquipamentoLicencaViewModel>> RemoverLicencaVinculada(Guid id)
         {
             var licenca = await ObterLicencaVinculada(id);
@@ -82,7 +107,6 @@ namespace Geti.Api.Controllers
             return CustomResponse();
         }
 
-
         private async Task<EquipamentoLicenca> ObterLicencaVinculada(Guid id)
         {
             return _mapper.Map<EquipamentoLicenca>(await _equipamentoLicencaRepository.ObterLicencaVinculada(id));
@@ -92,7 +116,5 @@ namespace Geti.Api.Controllers
         {
             return _mapper.Map<LicencaDetalhesViewModel>(await _licencaRepository.ObterLicencaEquipamentos(id));
         }
-
-
     }
 }

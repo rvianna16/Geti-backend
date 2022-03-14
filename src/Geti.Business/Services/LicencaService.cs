@@ -10,13 +10,14 @@ namespace Geti.Business.Services
     public class LicencaService : BaseService, ILicencaService
     {
         private readonly ILicencaRepository _licencaRepository;
-        private readonly IEquipamentoRepository _equipamentoRepository;
+        private readonly IEquipamentoLicencaService _equipamentoLicencaService;
         public LicencaService(
             INotificador notificador,
-            ILicencaRepository licencaRepository, IEquipamentoRepository equipamentoRepository) : base(notificador)
+            ILicencaRepository licencaRepository,            
+            IEquipamentoLicencaService equipamentoLicencaService) : base(notificador)
         {
             _licencaRepository = licencaRepository;
-            _equipamentoRepository = equipamentoRepository;
+            _equipamentoLicencaService = equipamentoLicencaService;
         }
 
         public async Task Adicionar(Licenca licenca)
@@ -39,9 +40,16 @@ namespace Geti.Business.Services
             await _licencaRepository.Atualizar(licenca);
         }
 
-        public Task Remover(Guid id)
+        public async Task Remover(Guid id)
         {
-            throw new NotImplementedException();
+            var licenca = _licencaRepository.ObterLicencaEquipamentos(id);
+
+            foreach (var licencaVinculada in licenca.Result.Equipamentos)
+            {
+                await _equipamentoLicencaService.Remover(licencaVinculada.Id);
+            }
+
+            await _licencaRepository.Remover(id);
         }
     }
 }

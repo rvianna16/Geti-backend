@@ -144,6 +144,11 @@ D:\Coding\geti\src\Geti.Api\obj\Debug\net5.0\Geti.Api.dll
 D:\Coding\geti\src\Geti.Api\obj\Debug\net5.0\ref\Geti.Api.dll
 D:\Coding\geti\src\Geti.Api\obj\Debug\net5.0\Geti.Api.pdb
 D:\Coding\geti\src\Geti.Api\obj\Debug\net5.0\Geti.Api.genruntimeconfig.cache
+D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.GeneratedMSBuildEditorConfig.editorconfig
+D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.AssemblyInfoInputs.cache
+D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.AssemblyInfo.cs
+D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.csproj.CoreCompileInputs.cache
+D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.MvcApplicationPartsAssemblyInfo.cache
 D:\Coding\Geti-backend\src\Geti.Api\bin\Debug\net5.0\appsettings.Development.json
 D:\Coding\Geti-backend\src\Geti.Api\bin\Debug\net5.0\appsettings.json
 D:\Coding\Geti-backend\src\Geti.Api\bin\Debug\net5.0\Geti.Api.exe
@@ -275,12 +280,7 @@ D:\Coding\Geti-backend\src\Geti.Api\bin\Debug\net5.0\Geti.Data.dll
 D:\Coding\Geti-backend\src\Geti.Api\bin\Debug\net5.0\Geti.Business.pdb
 D:\Coding\Geti-backend\src\Geti.Api\bin\Debug\net5.0\Geti.Data.pdb
 D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.csproj.AssemblyReference.cache
-D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.GeneratedMSBuildEditorConfig.editorconfig
-D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.AssemblyInfoInputs.cache
-D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.AssemblyInfo.cs
-D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.csproj.CoreCompileInputs.cache
 D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.MvcApplicationPartsAssemblyInfo.cs
-D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.MvcApplicationPartsAssemblyInfo.cache
 D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\staticwebassets\Geti.Api.StaticWebAssets.Manifest.cache
 D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\staticwebassets\Geti.Api.StaticWebAssets.xml
 D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\scopedcss\bundle\Geti.Api.styles.css

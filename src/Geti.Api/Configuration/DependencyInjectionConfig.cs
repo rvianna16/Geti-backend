@@ -23,6 +23,8 @@ namespace Geti.Api.Configuration
                 services.AddScoped<ILicencaService, LicencaService>();
                 services.AddScoped<IEquipamentoLicencaRepository, EquipamentoLicencaRepository>();
                 services.AddScoped<IEquipamentoLicencaService, EquipamentoLicencaService>();
+                services.AddScoped<ISoftwareRepository, SoftwareRepository>();
+                services.AddScoped<ISoftwareService, SoftwareService>();
 
                 services.AddScoped<INotificador, Notificador>();
         

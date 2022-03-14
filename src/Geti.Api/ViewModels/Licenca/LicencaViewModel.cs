@@ -11,11 +11,13 @@ namespace Geti.Api.ViewModels.Licenca
 
         public string Chave { get; set; }
 
+        public Guid SoftwareId { get; set; }
+
         public string Software { get; set; }
 
         public int Quantidade { get; set; }
 
-        public DateTime DataExpiracao { get; set; }
+        public DateTime? DataExpiracao { get; set; }
 
         public bool Ativo { get; set; }
     }

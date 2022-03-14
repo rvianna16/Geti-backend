@@ -19,7 +19,7 @@ namespace Geti.Api.ViewModels
 
         public int Disponivel { get; set; }
 
-        public DateTime DataExpiracao { get; set; }
+        public DateTime? DataExpiracao { get; set; }
 
         public ICollection<EquipamentoLicencaBasicoViewModel> Equipamentos { get; set; }
 

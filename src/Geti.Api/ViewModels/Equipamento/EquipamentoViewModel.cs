@@ -1,7 +1,5 @@
-﻿using Geti.Api.ViewModels.Equipamento;
-using Geti.Business.Models;
+﻿using Geti.Business.Models;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Geti.Api.ViewModels
@@ -20,7 +18,7 @@ namespace Geti.Api.ViewModels
 
         public string Descricao { get; set; }
 
-        public DateTime DataAquisicao { get; set; }
+        public DateTime? DataAquisicao { get; set; }
 
         public string NomeColaborador { get; set; }
 
@@ -29,6 +27,8 @@ namespace Geti.Api.ViewModels
         public string Modelo { get; set; }
 
         public string Armazenamento { get; set; }
+
+        public string Memoria { get; set; }
 
         public string Processador { get; set; }
 

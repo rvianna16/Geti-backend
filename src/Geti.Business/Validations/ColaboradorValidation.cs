@@ -12,7 +12,7 @@ namespace Geti.Business.Validations
                 .WithMessage("Nome do colaborador não pode estar vazio")
                 .MinimumLength(2)
                 .WithMessage("Nome do colaborador precisa ter no mínimo {MinLength} caracteres")
-                .MaximumLength(30)
+                .MaximumLength(100)
                 .WithMessage("Nome do colabrador deve ter no máximo {MaxLength} caracteres");                
 
             RuleFor(c => c.Email)

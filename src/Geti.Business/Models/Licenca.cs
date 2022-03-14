@@ -9,13 +9,15 @@ namespace Geti.Business.Models
 
         public string Chave { get; set; }
 
-        public string Software { get; set; }
+        public Guid SoftwareId { get; set; }
+
+        public Software Software { get; set; }
 
         public int Quantidade { get; set; }
 
         public int Disponivel { get; set; }
 
-        public DateTime DataExpiracao { get; set; }
+        public DateTime? DataExpiracao { get; set; }
 
         public ICollection<EquipamentoLicenca> Equipamentos { get; set; }
 

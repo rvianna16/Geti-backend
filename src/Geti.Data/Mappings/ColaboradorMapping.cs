@@ -12,7 +12,7 @@ namespace Geti.Data.Mappings
 
             builder.Property(p => p.Nome)
                 .IsRequired()
-                .HasColumnType("varchar(30)");
+                .HasColumnType("varchar(100)");
 
             builder.Property(p => p.Email)
                 .IsRequired()

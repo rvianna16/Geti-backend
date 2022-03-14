@@ -7,7 +7,7 @@ namespace Geti.Business.Interfaces
 {
     public interface ILicencaRepository : IRepository<Licenca>
     {
-       Task<Licenca> ObterLicencaEquipamentos(Guid id);
-       Task<Licenca> InserirLicencaEquipamento(Licenca licenca);
-    }
+        Task<IEnumerable<Licenca>> ObterLicencaSoftware();
+        Task<Licenca> ObterLicencaEquipamentos(Guid id);
+    }   
 }
