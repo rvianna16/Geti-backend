@@ -17,8 +17,8 @@ namespace Geti.Data.Repository
         public async Task<Licenca> ObterLicencaEquipamentos(Guid id)
         {
             return await Db.Licencas.AsNoTracking()
-                .Include(e => e.Software)
-                .Include(e => e.Equipamentos)
+                .Include(l => l.Software)
+                .Include(l => l.Equipamentos)
                 .ThenInclude(e => e.Equipamento)
                 .FirstOrDefaultAsync(e => e.Id.Equals(id));
         }
@@ -26,8 +26,9 @@ namespace Geti.Data.Repository
         public async Task<IEnumerable<Licenca>> ObterLicencaSoftware()
         {
             return await Db.Licencas.AsNoTracking()
-                .Include(c => c.Software)
-                .OrderBy(e => e.Nome).ToListAsync();
+                .Include(l => l.Software)
+                .Include(l => l.Equipamentos)
+                .OrderBy(l => l.Nome).ToListAsync();
         }
     }
 }

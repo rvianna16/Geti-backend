@@ -22,12 +22,14 @@ namespace Geti.Api.Configuration
 
             /// <summary>
             /// Licenca
-            /// </summary>
+            /// </summary>            
+            CreateMap<LicencaViewModel, Licenca>();
             CreateMap<Licenca, LicencaViewModel>()
-                .ForMember(dest => dest.Software, act => act.MapFrom(src => src.Software.Nome));
+                .ForMember(dest => dest.Disponivel, act => act.MapFrom(src => src.Quantidade - src.Equipamentos.Count))
+                .ForMember(dest => dest.Software, act => act.MapFrom(src => src.Software.Nome));         
 
             CreateMap<Licenca, LicencaDetalhesViewModel>()
-                .ForMember(dest => dest.Disponivel, act => act.MapFrom(src => src.Quantidade - src.Equipamentos.Count()))
+                .ForMember(dest => dest.Disponivel, act => act.MapFrom(src => src.Quantidade - src.Equipamentos.Count))
                 .ForMember(dest => dest.Software, act => act.MapFrom(src => src.Software.Nome));
 
             CreateMap<Licenca, LicencaEquipamentoBasicoViewModel>()

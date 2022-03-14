@@ -3,8 +3,6 @@ using Geti.Business.Models;
 using Geti.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace Geti.Data.Repository
