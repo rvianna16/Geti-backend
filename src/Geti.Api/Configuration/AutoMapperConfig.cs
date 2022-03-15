@@ -60,7 +60,7 @@ namespace Geti.Api.Configuration
             CreateMap<EquipamentoLicenca, LicencaEquipamentoBasicoViewModel>()
                 .ForMember(dest => dest.Nome, act => act.MapFrom(src => src.Licenca.Nome))
                 .ForMember(dest => dest.Chave, act => act.MapFrom(src => src.Licenca.Chave))
-                .ForMember(dest => dest.Software, act => act.MapFrom(src => src.Licenca.Software.Nome));                
+                .ForMember(dest => dest.Software, act => act.MapFrom(src => src.Licenca.Software.Nome));
 
             CreateMap<Equipamento, EquipamentoDetalhesViewModel>()
                 .ForMember(dest => dest.NomeColaborador, act => act.MapFrom(src => src.Colaborador.Nome));
@@ -69,7 +69,8 @@ namespace Geti.Api.Configuration
 
             CreateMap<EquipamentoLicenca, EquipamentoLicencaBasicoViewModel>()
                .ForMember(dest => dest.Patrimonio, act => act.MapFrom(src => src.Equipamento.Patrimonio))
-               .ForMember(dest => dest.TipoEquipamento, act => act.MapFrom(src => src.Equipamento.TipoEquipamento));                          
+               .ForMember(dest => dest.TipoEquipamento, act => act.MapFrom(src => src.Equipamento.TipoEquipamento))
+               .ForMember(dest => dest.StatusEquipamento, act => act.MapFrom(src => src.Equipamento.StatusEquipamento));                         
 
         }
     }

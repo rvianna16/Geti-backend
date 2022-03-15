@@ -11,15 +11,17 @@ namespace Geti.Business.Services
     {
         private readonly IEquipamentoRepository _equipamentoRepository;
         private readonly IComentarioRepository _comentarioRepository;
+        private readonly IEquipamentoLicencaRepository _equipamentoLicencaRepository;
 
         public EquipamentoService(
             IEquipamentoRepository equipamentoRepository,
             IComentarioRepository comentarioRepository,
-            INotificador notificador
-            ) : base(notificador)
+            INotificador notificador, 
+            IEquipamentoLicencaRepository equipamentoLicencaRepository) : base(notificador)
         {
             _equipamentoRepository = equipamentoRepository;
             _comentarioRepository = comentarioRepository;
+            _equipamentoLicencaRepository = equipamentoLicencaRepository;
         }
 
         public async Task Adicionar(Equipamento equipamento)
@@ -51,6 +53,11 @@ namespace Geti.Business.Services
         public async Task Remover(Guid id)
         {
             var equipamento = _equipamentoRepository.ObterEquipamentoDetalhes(id);
+
+            foreach (var licenca in equipamento.Result.Licencas)
+            {
+                await _equipamentoLicencaRepository.Remover(licenca.Id);
+            }
 
             foreach (var comentario in equipamento.Result.Comentarios)
             {

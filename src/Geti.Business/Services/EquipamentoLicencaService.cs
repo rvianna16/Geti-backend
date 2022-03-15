@@ -28,7 +28,6 @@ namespace Geti.Business.Services
         public async Task Remover(Guid id)
         {
             await _equipamentoLicencaRepository.Remover(id);
-
         }
 
         public void Dispose()

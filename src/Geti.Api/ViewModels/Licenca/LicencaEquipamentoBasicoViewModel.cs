@@ -13,5 +13,6 @@ namespace Geti.Api.ViewModels.Licenca
         public string Chave { get; set; }
 
         public string Software { get; set; }
+
     }
 }

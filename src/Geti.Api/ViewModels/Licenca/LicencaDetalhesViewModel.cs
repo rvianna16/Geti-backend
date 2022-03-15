@@ -13,6 +13,8 @@ namespace Geti.Api.ViewModels
 
         public string Chave { get; set; }
 
+        public Guid SoftwareId { get; set; }
+
         public string Software { get; set; }
 
         public int Quantidade { get; set; }

@@ -13,5 +13,7 @@ namespace Geti.Api.ViewModels.Equipamento
 
         public TipoEquipamento TipoEquipamento { get; set; }
 
+        public StatusEquipamento StatusEquipamento { get; set; }
+
     }
 }
