@@ -7,6 +7,7 @@ namespace Geti.Business.Interfaces
 {
     public interface IColaboradorRepository : IRepository<Colaborador>   
     {
+        Task<IEnumerable<Colaborador>> ObterTodosColaboradores(string filtro);
         Task<Colaborador> ObterColaboradorEquipamentos(Guid id);
     }   
 }

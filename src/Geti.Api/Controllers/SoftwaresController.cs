@@ -27,9 +27,9 @@ namespace Geti.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<SoftwareViewModel>>> ObterSoftwares()
+        public async Task<ActionResult<IEnumerable<SoftwareViewModel>>> ObterSoftwares(string filtro)
         {
-            var softwares = _mapper.Map<IEnumerable<SoftwareViewModel>>(await _softwareRepository.ObterTodos());
+            var softwares = _mapper.Map<IEnumerable<SoftwareViewModel>>(await _softwareRepository.ObterSoftwares(filtro));
 
             return CustomResponse(softwares);
         }

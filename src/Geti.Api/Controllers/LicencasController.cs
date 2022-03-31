@@ -34,9 +34,9 @@ namespace Geti.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<LicencaViewModel>>> ObterLicencas()
+        public async Task<ActionResult<IEnumerable<LicencaViewModel>>> ObterLicencas(string filtro)
         {
-            var licencas = _mapper.Map<IEnumerable<LicencaViewModel>>(await _licencaRepository.ObterLicencaSoftware());
+            var licencas = _mapper.Map<IEnumerable<LicencaViewModel>>(await _licencaRepository.ObterLicencaSoftware(filtro));
             return CustomResponse(licencas);
         }
 

@@ -7,7 +7,7 @@ namespace Geti.Business.Interfaces
 {
     public interface IEquipamentoRepository : IRepository<Equipamento>
     {
-        Task<IEnumerable<Equipamento>> ObterEquipamentosColaboradores();
+        Task<IEnumerable<Equipamento>> ObterEquipamentosColaboradores(string filtro);
 
         Task<Equipamento> ObterEquipamentoColaborador(Guid id);
 

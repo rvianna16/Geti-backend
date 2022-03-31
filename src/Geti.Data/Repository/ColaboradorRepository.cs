@@ -3,6 +3,8 @@ using Geti.Business.Models;
 using Geti.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Geti.Data.Repository
@@ -11,6 +13,21 @@ namespace Geti.Data.Repository
     {
 
         public ColaboradorRepository(GetiDbContext context) : base(context) { }
+
+        public async Task<IEnumerable<Colaborador>> ObterTodosColaboradores(string filtro)
+        {
+            IQueryable<Colaborador> query = Db.Colaboradores;
+
+            if (filtro != null)
+            {
+                query = query.Where(c => c.Nome.ToLower().Contains(filtro.Trim().ToLower()));
+
+            }
+
+            return await query
+                .AsNoTracking()
+                .ToListAsync();
+        }
 
         public async Task<Colaborador> ObterColaboradorEquipamentos(Guid id)
         {

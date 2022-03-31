@@ -34,9 +34,9 @@ namespace Geti.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<EquipamentoViewModel>>> ObterEquipamentos()
+        public async Task<ActionResult<IEnumerable<EquipamentoViewModel>>> ObterEquipamentos(string filtro)
         {
-            var equipamentos = _mapper.Map<IEnumerable<EquipamentoViewModel>>(await _equipamentoRepository.ObterEquipamentosColaboradores());
+            var equipamentos = _mapper.Map<IEnumerable<EquipamentoViewModel>>(await _equipamentoRepository.ObterEquipamentosColaboradores(filtro));
             return CustomResponse(equipamentos);
         }
 

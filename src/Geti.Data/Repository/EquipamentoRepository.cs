@@ -14,11 +14,20 @@ namespace Geti.Data.Repository
     {
         public EquipamentoRepository(GetiDbContext context) : base(context) { }
 
-        public async Task<IEnumerable<Equipamento>> ObterEquipamentosColaboradores()
+        public async Task<IEnumerable<Equipamento>> ObterEquipamentosColaboradores(string filtro)
         {
-            return await Db.Equipamentos.AsNoTracking()
+            IQueryable<Equipamento> query = Db.Equipamentos;
+
+            if (filtro != null)
+            {
+                query = query.Where(c => c.Patrimonio.ToLower().Contains(filtro.Trim().ToLower()));
+
+            }
+
+            return await query
+                .AsNoTracking()
                 .Include(e => e.Colaborador)
-                .OrderBy(c => c.Patrimonio).ToListAsync();
+                .ToListAsync();            
         }
 
         public async Task<Equipamento> ObterEquipamentoColaborador(Guid id)

@@ -29,11 +29,11 @@ namespace Geti.Api.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<ColaboradorViewModel>>> ObterColaboradores()
+        public async Task<ActionResult<IEnumerable<ColaboradorViewModel>>> ObterColaboradores(string filtro)
         {
-            var colaborador = _mapper.Map<IEnumerable<ColaboradorViewModel>>(await _colaboradorRepository.ObterTodos());
-            
-            return CustomResponse(colaborador);
+            var colaboradores = _mapper.Map<IEnumerable<ColaboradorViewModel>>(await _colaboradorRepository.ObterTodosColaboradores(filtro));
+
+            return CustomResponse(colaboradores);
         }
 
         [HttpGet("{id}")]

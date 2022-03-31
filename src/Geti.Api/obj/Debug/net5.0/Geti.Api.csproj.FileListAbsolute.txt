@@ -156,7 +156,6 @@ D:\Coding\Geti-backend\src\Geti.Api\bin\Debug\net5.0\Geti.Api.deps.json
 D:\Coding\Geti-backend\src\Geti.Api\bin\Debug\net5.0\Geti.Api.runtimeconfig.json
 D:\Coding\Geti-backend\src\Geti.Api\bin\Debug\net5.0\Geti.Api.runtimeconfig.dev.json
 D:\Coding\Geti-backend\src\Geti.Api\bin\Debug\net5.0\Geti.Api.dll
-D:\Coding\Geti-backend\src\Geti.Api\bin\Debug\net5.0\ref\Geti.Api.dll
 D:\Coding\Geti-backend\src\Geti.Api\bin\Debug\net5.0\Geti.Api.pdb
 D:\Coding\Geti-backend\src\Geti.Api\bin\Debug\net5.0\AutoMapper.dll
 D:\Coding\Geti-backend\src\Geti.Api\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
@@ -290,3 +289,4 @@ D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.dll
 D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\ref\Geti.Api.dll
 D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.pdb
 D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\Geti.Api.genruntimeconfig.cache
+D:\Coding\Geti-backend\src\Geti.Api\obj\Debug\net5.0\refint\Geti.Api.dll

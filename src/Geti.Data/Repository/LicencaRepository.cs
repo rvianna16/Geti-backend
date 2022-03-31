@@ -23,12 +23,21 @@ namespace Geti.Data.Repository
                 .FirstOrDefaultAsync(e => e.Id.Equals(id));
         }
 
-        public async Task<IEnumerable<Licenca>> ObterLicencaSoftware()
+        public async Task<IEnumerable<Licenca>> ObterLicencaSoftware(string filtro)
         {
-            return await Db.Licencas.AsNoTracking()
+            IQueryable<Licenca> query = Db.Licencas;
+
+            if (filtro != null)
+            {
+                query = query.Where(c => c.Nome.ToLower().Contains(filtro.Trim().ToLower()));
+
+            }
+
+            return await query
+                .AsNoTracking()
                 .Include(l => l.Software)
                 .Include(l => l.Equipamentos)
-                .OrderBy(l => l.Nome).ToListAsync();
+                .ToListAsync();            
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Geti.Business.Interfaces
 {
     public interface ISoftwareRepository : IRepository<Software>
     {
+        Task<IEnumerable<Software>> ObterSoftwares(string filtro);
         Task<Software> ObterSoftwareLicencas(Guid id);
     }
 }
