@@ -16,10 +16,6 @@ D:\Coding\geti\src\Geti.Data\obj\Debug\net5.0\Geti.Data.dll
 D:\Coding\geti\src\Geti.Data\obj\Debug\net5.0\ref\Geti.Data.dll
 D:\Coding\geti\src\Geti.Data\obj\Debug\net5.0\Geti.Data.pdb
 D:\Coding\geti\src\Geti.Data\obj\Debug\net5.0\Geti.Data.genruntimeconfig.cache
-D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\Geti.Data.GeneratedMSBuildEditorConfig.editorconfig
-D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\Geti.Data.AssemblyInfoInputs.cache
-D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\Geti.Data.AssemblyInfo.cs
-D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\Geti.Data.csproj.CoreCompileInputs.cache
 D:\Coding\Geti-backend\src\Geti.Data\bin\Debug\net5.0\Geti.Data.deps.json
 D:\Coding\Geti-backend\src\Geti.Data\bin\Debug\net5.0\Geti.Data.runtimeconfig.json
 D:\Coding\Geti-backend\src\Geti.Data\bin\Debug\net5.0\Geti.Data.runtimeconfig.dev.json
@@ -28,9 +24,13 @@ D:\Coding\Geti-backend\src\Geti.Data\bin\Debug\net5.0\Geti.Data.pdb
 D:\Coding\Geti-backend\src\Geti.Data\bin\Debug\net5.0\Geti.Business.dll
 D:\Coding\Geti-backend\src\Geti.Data\bin\Debug\net5.0\Geti.Business.pdb
 D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\Geti.Data.csproj.AssemblyReference.cache
+D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\Geti.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\Geti.Data.AssemblyInfoInputs.cache
+D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\Geti.Data.AssemblyInfo.cs
+D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\Geti.Data.csproj.CoreCompileInputs.cache
 D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\Geti.Data.csproj.CopyComplete
 D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\Geti.Data.dll
-D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\ref\Geti.Data.dll
+D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\refint\Geti.Data.dll
 D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\Geti.Data.pdb
 D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\Geti.Data.genruntimeconfig.cache
-D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\refint\Geti.Data.dll
+D:\Coding\Geti-backend\src\Geti.Data\obj\Debug\net5.0\ref\Geti.Data.dll

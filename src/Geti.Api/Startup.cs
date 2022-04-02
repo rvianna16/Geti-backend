@@ -2,18 +2,12 @@ using Geti.Api.Configuration;
 using Geti.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Geti.Api
 {
@@ -33,6 +27,8 @@ namespace Geti.Api
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            services.AddIdentityConfiguration(Configuration);
 
             services.AddAutoMapper(typeof(Startup));
             services.AddMvc();
@@ -64,6 +60,7 @@ namespace Geti.Api
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "Geti.Api v1"));
             }
+
             app.UseCors(x => x
               .AllowAnyOrigin()
               .AllowAnyMethod()
@@ -73,6 +70,7 @@ namespace Geti.Api
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

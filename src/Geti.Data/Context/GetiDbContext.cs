@@ -7,7 +7,7 @@ namespace Geti.Data.Context
 {
     public class GetiDbContext : DbContext
     {
-        public GetiDbContext(DbContextOptions options) : base(options) { }
+        public GetiDbContext(DbContextOptions<GetiDbContext> options) : base(options) { }
         public DbSet<Colaborador> Colaboradores { get; set; }            
         public DbSet<Equipamento> Equipamentos { get; set; }
         public DbSet<Comentario> Comentarios { get; set; }

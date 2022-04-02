@@ -2,6 +2,7 @@
 using Geti.Api.ViewModels.Software;
 using Geti.Business.Interfaces;
 using Geti.Business.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace Geti.Api.Controllers
 {
+    [Authorize]
     [Route("api/softwares")]
     public class SoftwaresController : MainController
     {

@@ -3,6 +3,7 @@ using Geti.Api.ViewModels;
 using Geti.Api.ViewModels.Licenca;
 using Geti.Business.Interfaces;
 using Geti.Business.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace Geti.Api.Controllers
 {
+    [Authorize]
     [Route("api/licencas")]
     public class LicencasController : MainController
     {
