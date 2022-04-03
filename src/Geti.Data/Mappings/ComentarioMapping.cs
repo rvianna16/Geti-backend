@@ -10,6 +10,9 @@ namespace Geti.Data.Mappings
         {
             builder.HasKey(p => p.Id);
 
+            builder.Property(p => p.NomeUsuario)
+                .HasColumnType("varchar(200)");
+
             builder.Property(p => p.Descricao)
                 .HasColumnType("varchar(500)");
 

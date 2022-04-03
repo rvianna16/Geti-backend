@@ -12,6 +12,10 @@ namespace Geti.Business.Validations
     {
         public ComentarioValidation()
         {
+            RuleFor(c => c.NomeUsuario)
+               .NotEmpty()
+               .WithMessage("Nome do usuário deve ser informado");
+
             RuleFor(c => c.DataComentario)
                 .NotEmpty()
                 .WithMessage("A data da criação do comentário deve ser informada");

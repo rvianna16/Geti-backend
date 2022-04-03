@@ -8,6 +8,8 @@ namespace Geti.Business.Models
 
         public DateTime DataComentario { get; set; }
 
+        public string NomeUsuario { get; set; }
+
         public string Descricao { get; set; }        
 
         public Equipamento Equipamento { get; set; }

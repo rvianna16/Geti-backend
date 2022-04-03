@@ -19,4 +19,10 @@ namespace Geti.Api.ViewModels.Usuario
 
         public UserBasicoViewModel User { get; set; }
     }
+
+    public class UserChangePasswordViewModel
+    {
+        public string Senha { get; set; }
+        public string ConfirmacaoSenha { get; set; }
+    }
 }

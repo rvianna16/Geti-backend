@@ -10,6 +10,8 @@ namespace Geti.Api.ViewModels.Equipamento
 
         public Guid EquipamentoId { get; set; }
 
+        public string NomeUsuario { get; set; }
+
         public DateTime DataComentario { get; set; }
 
         public string Descricao { get; set; }

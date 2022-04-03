@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Geti.Api.Controllers
@@ -77,6 +78,7 @@ namespace Geti.Api.Controllers
         [HttpPost("{id}/comentario")]
         public async Task<ActionResult<ComentarioViewModel>> AdicionarComentario(ComentarioViewModel comentarioViewModel)
         {
+            comentarioViewModel.NomeUsuario = HttpContext.User.Claims.First(c => c.Type == "name").Value;
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
             await _comentarioService.Adicionar(_mapper.Map<Comentario>(comentarioViewModel));

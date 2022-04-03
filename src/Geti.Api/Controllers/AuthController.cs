@@ -56,7 +56,54 @@ namespace Geti.Api.Controllers
 
             return CustomResponse(users);
         }
-                
+
+        [HttpPut("usuarios/{id}")]
+        public async Task<ActionResult<UserBasicoViewModel>> AlterarSenha(string id, UserChangePasswordViewModel userPassword)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+
+            if (user == null) return NotFound();
+
+            if (userPassword.Senha != userPassword.ConfirmacaoSenha)
+            {
+                NotificarErro("As senhas não coincidem");
+                return CustomResponse();
+            }
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var result = await _userManager.ResetPasswordAsync(user, token, userPassword.Senha);
+
+            if (result.Succeeded)
+            {
+                return CustomResponse();
+            }
+
+            foreach (var error in result.Errors)
+            {
+                NotificarErro(error.Description);
+            }
+
+            return CustomResponse();
+        }
+
+        [HttpDelete("usuarios/{id}")]
+        public async Task<ActionResult<UserBasicoViewModel>> RemoverUsuario(string id)
+        {
+            var user = await _userManager.FindByIdAsync(id);
+            var userAutenticadoId = HttpContext.User.Claims.First(c => c.Type.Contains("nameidentifier")).Value;
+            if(userAutenticadoId == id)
+            {
+                NotificarErro("Não é possível excluir o próprio usuário");
+                return CustomResponse();
+            }
+
+            if (user == null) return NotFound();
+
+            await _userManager.DeleteAsync(user);
+
+            return CustomResponse();
+        }
+
         [HttpPost("novo-usuario")]
         public async Task<ActionResult> Registrar(RegisterUserViewModel registerUser)
         {
@@ -70,13 +117,13 @@ namespace Geti.Api.Controllers
                 EmailConfirmed = true,
             };            
 
-            if(registerUser.Password != registerUser.ConfirmPassword)
+            if(registerUser.Senha != registerUser.ConfirmacaoSenha)
             {
                 NotificarErro("As senhas não coincidem");
 
             }else
             {
-                var result = await _userManager.CreateAsync(user, registerUser.Password);
+                var result = await _userManager.CreateAsync(user, registerUser.Senha);
 
                 if (result.Succeeded)
                 {
@@ -92,14 +139,14 @@ namespace Geti.Api.Controllers
 
             return CustomResponse(registerUser);
         }
-
+        
         [AllowAnonymous]
         [HttpPost("login")]
         public async Task<ActionResult> Login(LoginUserViewModel loginUser)
         {
             if (!ModelState.IsValid) return CustomResponse(ModelState);
 
-            var result = await _signInManager.PasswordSignInAsync(loginUser.Email, loginUser.Password, false, true);
+            var result = await _signInManager.PasswordSignInAsync(loginUser.Email, loginUser.Senha, false, true);
 
             if (result.Succeeded)
             {
@@ -115,6 +162,13 @@ namespace Geti.Api.Controllers
             NotificarErro("Usuário ou senha incorretos");
             return CustomResponse(loginUser);
 
+        }
+
+        [AllowAnonymous]
+        [HttpPost("check-token")]
+        public bool CheckToken()
+        {
+            return HttpContext.User.Identity.IsAuthenticated;
         }
 
         private async Task<LoginResponseViewModel> GerarJwt(string email)
