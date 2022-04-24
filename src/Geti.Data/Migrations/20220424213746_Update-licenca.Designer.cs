@@ -4,14 +4,16 @@ using Geti.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Geti.Data.Migrations
 {
     [DbContext(typeof(GetiDbContext))]
-    partial class GetiDbContextModelSnapshot : ModelSnapshot
+    [Migration("20220424213746_Update-licenca")]
+    partial class Updatelicenca
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -152,12 +154,14 @@ namespace Geti.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Descricao")
+                        .IsRequired()
                         .HasColumnType("varchar(2000)");
 
                     b.Property<int>("Disponivel")
                         .HasColumnType("int");
 
                     b.Property<string>("Fornecedor")
+                        .IsRequired()
                         .HasColumnType("varchar(200)");
 
                     b.Property<string>("Nome")

@@ -23,6 +23,14 @@ namespace Geti.Business.Validations
             .MaximumLength(100)
             .WithMessage("Chave da licença deve ter no máximo {MaxLength} caracteres");
 
+            RuleFor(e => e.Fornecedor)
+                .MaximumLength(200)
+                .WithMessage("Fornecedor deve ter no máximo {MaxLength} caracteres");
+
+            RuleFor(e => e.Descricao)
+                .MaximumLength(2000)
+                .WithMessage("Descrição deve ter no máximo {MaxLength} caracteres");
+
             RuleFor(e => e.SoftwareId)
             .NotNull()
             .WithMessage("Software referente a licença não pode estar vazio");   

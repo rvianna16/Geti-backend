@@ -16,7 +16,13 @@ namespace Geti.Data.Mappings
 
             builder.Property(p => p.Chave)
                 .IsRequired()
-                .HasColumnType("varchar(100)");                        
+                .HasColumnType("varchar(100)");
+
+            builder.Property(p => p.Fornecedor)                
+                .HasColumnType("varchar(200)");
+
+            builder.Property(p => p.Descricao)                
+                .HasColumnType("varchar(2000)");
 
             builder.ToTable("Licencas");
         }

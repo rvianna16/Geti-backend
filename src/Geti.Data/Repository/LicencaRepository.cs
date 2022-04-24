@@ -29,8 +29,7 @@ namespace Geti.Data.Repository
 
             if (filtro != null)
             {
-                query = query.Where(c => c.Nome.ToLower().Contains(filtro.Trim().ToLower()));
-
+                query = query.Where(c => c.Nome.ToLower().Contains(filtro.Trim().ToLower()) || c.Software.Nome.ToLower().Contains(filtro.Trim().ToLower()));
             }
 
             return await query

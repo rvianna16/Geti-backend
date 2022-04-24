@@ -16,6 +16,8 @@ namespace Geti.Api.ViewModels.Licenca
 
         public string Software { get; set; }
 
+        public string Fornecedor { get; set; }
+
         public int Quantidade { get; set; }
 
         public int Disponivel { get; set; }
@@ -23,5 +25,8 @@ namespace Geti.Api.ViewModels.Licenca
         public DateTime? DataExpiracao { get; set; }
 
         public bool Ativo { get; set; }
+
+        public string Descricao { get; set; }
+
     }
 }
