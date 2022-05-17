@@ -11,7 +11,7 @@
 <!--About session-->
 ## :bulb: Sobre o projeto
 
- Back-end do projeto ([GETI](https://github.com/rvianna16/Geti-frontend)), onde foi feita toda documentação com o Swagger.
+ Back-end do projeto ([GETI](https://github.com/rvianna16/Geti-frontend)), onde foi feita toda documentação com o Swagger. <br>
  Projeto foi desenvolvido utilizando Visual Studio 2022 e .NET 5.0
 
 ---
@@ -50,7 +50,7 @@ As seguintes ferramentas foram usadas na construção do projeto:
 - .NET 5.0
 - EntityFramework
 - AutoMapper
-- FluentValidaiton
+- FluentValidation
 - Identity
 - JWT
 
